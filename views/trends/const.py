@@ -1,1 +1,1 @@
-year_options = ['2018', '2019', '2020']
+year_options = ['2018', '2019', '2020','consolidado']
