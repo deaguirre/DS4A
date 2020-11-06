@@ -9,6 +9,9 @@ def select_table(year):
             if year==2018 or year==2019:
                 query='SELECT * FROM datos_proceso'+'_'+str(year)
                 df = pd.read_sql(query, connDB)
+            elif year=='consolidado':
+                query='SELECT * FROM datos_proceso'+'_'+str(year)
+                df = pd.read_sql(query, connDB)   
             else:
                 query='SELECT * FROM datos_proceso WHERE year=\''+str(year)+'\''
                 df = pd.read_sql(query, connDB)
