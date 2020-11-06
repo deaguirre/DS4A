@@ -1,0 +1,25 @@
+.card-content {
+  margin-top: 5rem;
+  -webkit-box-shadow: 3px 3px 5px grey;
+          box-shadow: 3px 3px 5px grey;
+}
+
+.container {
+  margin-left: 1rem;
+}
+
+.secondary-title {
+  font-weight: bold;
+}
+
+.select-container {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-right: 1.2rem;
+  width: 147px;
+}
+
+.select-inline {
+  display: inline-block;
+}
+/*# sourceMappingURL=trends.css.map */
