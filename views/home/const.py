@@ -22,7 +22,7 @@ Profesional de planeación y control de proyectos. Ingeniero electricista.
 '''
 
 name4 = '''Daniel Parra'''
-foto4 = '/assets/images/danielParra.png'
+foto4 = '/assets/images/danielP.png'
 description4 = '''
 Químico Farmacéutico, Candidato a Magíster en Farmacología. 
 '''
