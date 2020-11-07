@@ -95,7 +95,7 @@ def line_plot_x(var_x):
                  )
     
     #add Title
-    t = "Evolution of " + var_x.name
+    t = "Evolution of " + var_x.name + "(-- Mean, and +/-2 Std. Dev. -- )"
     fig.update_layout(
     title={
         'text': t ,
