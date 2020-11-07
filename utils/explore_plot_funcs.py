@@ -106,9 +106,13 @@ def line_plot_x(var_x):
         'xanchor': 'center',
         'yanchor': 'top'})
 		
+<<<<<<< HEAD
 	#add reference lines
 
 	
+=======
+	#add reference lines	
+>>>>>>> danielaguirre
 	#calc mean, ucl and lcl
     m = np.mean(var_x)
     ucl = m + 2*np.std(var_x)
