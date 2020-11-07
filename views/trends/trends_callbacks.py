@@ -8,7 +8,7 @@ import plotly.express as px
 import dash
 
 df = select_table()
-options = [{'label': i, 'value': i} for i in df.columns]
+
 
 
 @app.callback(
