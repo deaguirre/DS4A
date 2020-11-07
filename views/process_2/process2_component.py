@@ -2,6 +2,8 @@ import dash_bootstrap_components as dbc
 import dash_html_components as html
 import views.process_2.process2_callbacks
 from components.input.input_component import new_inputs
+from views.process_2.const import items_modal, items_modal2,nodes, items_modal3
+
 
 
 def make_item(i):
@@ -26,5 +28,5 @@ def make_item(i):
 
 
 layout = html.Div(
-    [make_item('refrigeracion'), make_item(2), make_item(3)], className="accordion"
+    [make_item(1), make_item(2), make_item(3)], className="accordion"
 )
