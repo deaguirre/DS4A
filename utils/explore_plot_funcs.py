@@ -1,5 +1,6 @@
 import plotly.graph_objects as go
 import plotly.express as px
+import numpy as np
 
 
 def scatter_plot_x_y(var_x, var_y): #, var_id_1="extract_no", var_id_2="year"):
@@ -106,7 +107,7 @@ def line_plot_x(var_x):
         'yanchor': 'top'})
 		
 	#add reference lines
-	import numpy as np
+
 	
 	#calc mean, ucl and lcl
     m = np.mean(var_x)
