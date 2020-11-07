@@ -9,28 +9,27 @@ import dash
 
 df = select_table()
 
-
-
-@app.callback(
-    [
-        Output('independentSelection', 'options'),
-        Output('independentSelection', 'value'),
-        Output('plotsContainer', 'style'),
-        Output('displayAlert', 'style')
-    ],
-    [
-        Input('url', 'pathname')
-    ]
-)
-def select_df(url):
-    global df 
-        
-    if(not isinstance(df, bool) and len(df)>0):
-        options = [{'label': i, 'value': i} for i in df.columns]
-        value = options[1]['value']
-        return options, value, {'display': 'block'}, {'display': 'none'}
-    else:
-        return [], '', {'display': 'none'}, {'display': 'block'} 
+# @app.callback(
+#     [
+#         Output('independentSelection', 'options'),
+#         Output('independentSelection', 'value'),
+#         Output('plotsContainer', 'style'),
+#         Output('displayAlert', 'style')
+#     ],    
+#     [
+#         Input('yearSelection', 'value'),
+#     ]
+# )
+# def select_year(year):
+#     global df 
+#     df = select_table(year)
+    
+#     if(not isinstance(df, bool) and len(df)>0):
+#         options = [{'label': i, 'value': i} for i in df.columns]
+#         value = options[0]['value']
+#         return options, value, {'display': 'block'}, {'display': 'none'}
+#     else:
+#         return [], '', {'display': 'none'}, {'display': 'block'} 
         
     
 
@@ -51,7 +50,6 @@ def select_df(url):
 def plot_figures(x, y):
     
     if(not isinstance(df, bool) and len(df) > 0):
-        
         scatter = scatter_plot_x_y(df[x], df[y])
         hist = histogram_plot_x(df[x])
         line = line_plot_x(df[x])

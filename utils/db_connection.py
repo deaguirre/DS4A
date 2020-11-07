@@ -2,22 +2,15 @@ from sqlalchemy import create_engine
 import pandas as pd
 
 
-def select_table(year):
+def select_table():
     try:
         connDB = dbconn()
         if(connDB):
-            if year=='2018' or year=='2019':
-                query='SELECT * FROM datos_proceso'+'_'+str(year)
+                query='SELECT * FROM datos_proceso_consolidado'
                 df = pd.read_sql(query, connDB)
-            elif year=='consolidado':
-                query='SELECT * FROM datos_proceso'+'_'+str(year)
-                df = pd.read_sql(query, connDB)   
-            else:
-                query='SELECT * FROM datos_proceso WHERE year=\''+str(year)+'\''
-                df = pd.read_sql(query, connDB)
-            return df
+                return df
         else:
-            return False
+                return False
     except:
         print("Error loading database table")
         return False
