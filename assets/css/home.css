@@ -1,5 +1,5 @@
 .border-navbar{
-    padding: 3%;
+    padding: 1%;
     background-color: rgba(0, 172, 216, 0.4) !important;
 }
 
@@ -28,6 +28,6 @@
     padding-top: 5%;
     
 }
-.text.justify{
+.text-justify{
     text-align: justify;
 }

@@ -16,6 +16,7 @@ headerComponent = html.Div(
                             dbc.Col(
                                 html.H1('Gelatin Manufacturing Process'),
                                 width=8,
+                                align="center",
                                 #style={'backgroundColor':'black'}
                                 
                             ),
