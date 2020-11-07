@@ -95,7 +95,7 @@ def line_plot_x(var_x):
                  )
     
     #add Title
-    t = "Evolution of " + var_x.name
+    t = "Evolution of " + var_x.name + "(-- Mean, and +/-2 Std. Dev. -- )"
     fig.update_layout(
     title={
         'text': t ,
@@ -104,6 +104,62 @@ def line_plot_x(var_x):
         'x':0.5,
         'xanchor': 'center',
         'yanchor': 'top'})
+		
+	#add reference lines
+	import numpy as np
+	
+	#calc mean, ucl and lcl
+    m = np.mean(var_x)
+    ucl = m + 2*np.std(var_x)
+    lcl = m - 2*np.std(var_x)
+	
+	#add reference lines (Mean, UCL, LCL)
+    fig.update_layout(shapes=[
+        dict(
+            type="line",
+            yref='y1',
+            y0=m,
+            y1=m,
+            xref='x1',
+            x0=0,
+            x1=len(var_x),
+            line=dict(
+                color="Black",
+                width=1,
+                dash="dashdot",
+            )
+        ),
+        
+        dict(
+            type="line",
+            yref='y1',
+            y0=ucl,
+            y1=ucl,
+            xref='x1',
+            x0=0,
+            x1=len(var_x),
+            line=dict(
+                color="Blue",
+                width=1,
+                dash="dashdot",
+            )
+        ),
+        
+        dict(
+            type="line",
+            yref='y1',
+            y0=lcl,
+            y1=lcl,
+            xref='x1',
+            x0=0,
+            x1=len(var_x),
+            line=dict(
+                color="Blue",
+                width=1,
+                dash="dashdot",
+            )
+        )    
+    ])
     
     return fig
     #fig.show()	

@@ -26,7 +26,7 @@ headerComponent = html.Div(
                                 
                             ),
                             dbc.Col(
-                                html.Img(src=logoDS4, width=200, height=100),
+                                html.Img(src=logoDS4, width=100.5, height=100),
                                 width=2,
                                 #style={'backgroundColor':'blue'}
                                 

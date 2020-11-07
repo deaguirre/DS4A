@@ -23,7 +23,8 @@ df = None
 def select_year(year):
     global df 
     df = select_table(year)
-    if(not isinstance(df, bool)):
+    
+    if(not isinstance(df, bool) and len(df)>0):
         options = [{'label': i, 'value': i} for i in df.columns]
         value = options[0]['value']
         return options, value, {'display': 'block'}, {'display': 'none'}
@@ -51,7 +52,7 @@ def select_year(year):
 )
 def plot_figures(x, y, year):
     
-    if(not isinstance(df, bool)):
+    if(not isinstance(df, bool) and len(df) > 0):
         scatter = scatter_plot_x_y(df[x], df[y])
         hist = histogram_plot_x(df[x])
         line = line_plot_x(df[x])
