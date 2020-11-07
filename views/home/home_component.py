@@ -14,7 +14,7 @@ layout = html.Div(
                     dbc.Col(
                         [
                             html.H1(const.generalTopic),
-                            html.P(const.generalDescription, className='text-justify')
+                            html.P(const.generalDescription, className='text-justify'),
                         ]
                     )
                 )

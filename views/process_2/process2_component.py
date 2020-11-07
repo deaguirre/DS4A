@@ -28,5 +28,17 @@ def make_item(i):
 
 
 layout = html.Div(
-    [make_item(1), make_item(2), make_item(3)], className="accordion"
+    [
+        dbc.Row(
+            [
+                dbc.Col(  
+                            [make_item(1), make_item(2), make_item(3)],
+                            className="accordion",
+                            width=6,
+                           
+                        )
+            ],
+             justify="center", 
+        )
+    ]
 )
