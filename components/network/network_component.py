@@ -31,13 +31,19 @@ def new_network(id, data):
             },
             autoResize= True,
             height='400px',
-            width='900px',
+            width='100%',
             layout={
                 'randomSeed': 43,
                 'hierarchical':{
                     'enabled':False,
                     'direction': 'LR',
-                    
+                    'levelSeparation': 150,
+                    'nodeSpacing': 100,
+                    'treeSpacing': 200,
+                    'blockShifting': False,
+                    'edgeMinimization': False,
+                    'parentCentralization': False,
+                    'sortMethod': 'directed' 
                 }
             }
             
