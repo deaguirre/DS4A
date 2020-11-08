@@ -6,55 +6,42 @@ from utils.db_connection import select_table
 from utils.explore_plot_funcs import scatter_plot_x_y, histogram_plot_x, line_plot_x, corr_matrix_func
 import plotly.express as px
 import dash
+import pandas as pd
+#import knn_
 
-df = select_table()
-
-# @app.callback(
-#     [
-#         Output('independentSelection', 'options'),
-#         Output('independentSelection', 'value'),
-#         Output('plotsContainer', 'style'),
-#         Output('displayAlert', 'style')
-#     ],    
-#     [
-#         Input('yearSelection', 'value'),
-#     ]
-# )
-# def select_year(year):
-#     global df 
-#     df = select_table(year)
-    
-#     if(not isinstance(df, bool) and len(df)>0):
-#         options = [{'label': i, 'value': i} for i in df.columns]
-#         value = options[0]['value']
-#         return options, value, {'display': 'block'}, {'display': 'none'}
-#     else:
-#         return [], '', {'display': 'none'}, {'display': 'block'} 
-        
-    
-
-
+#example df
+df = pd.DataFrame(
+    {
+        "First Name": ["Daniel", "Edwar", "Cristian", "Daniel", "Andres", "Sebastian"],
+        "Last Name": ["Parra", "Giron", "Valencia", "Aguirre", "Caballero", "Cardenas"],
+		"Var": [1,2,3,4,5,6],
+		"New_Var": [0, 0, 0, 0, 0, 0]
+    }
+)
+ 
 @app.callback(
-    [   
-        Output('scatterPlot', 'figure'),
-        Output('histogramPlot', 'figure'),
-        Output('linePlot', 'figure'),
-        #Output('corrPlot', 'figure')
+    [    
+		Output('knn_table', 'columns'),
+		Output('knn_table', 'data')
     ],    
     [   
-        Input('independentSelection', 'value'),
-        Input('dependentSelection', 'value'),
+        #aqui va el boton
+		Input('knn_trigger_button', 'n_clicks')		
     ],
+	[
+	#crear lista con variable State
+		State('desired_bloom', 'value'),
+		State('desired_viscosidad', 'value'),
+		State('desired_claridad', 'value')		
+	],
+	
     prevent_initial_call=True
 )
-def plot_figures(x, y):
-    
-    if(not isinstance(df, bool) and len(df) > 0):
-        scatter = scatter_plot_x_y(df[x], df[y])
-        hist = histogram_plot_x(df[x])
-        line = line_plot_x(df[x])
-        #corr = corr_matrix_func(df)
-        
-        return scatter, hist, line#, corr
-    else:
-        return px.scatter(), px.histogram(), px.scatter()#, px.scatter()
+
+def fill_table(n_clicks, desired_bloom, desired_viscosidad, desired_claridad):
+	#here we input the knn_fucntion. It returns a dataframe
+	df['New_Var'] = (desired_bloom + desired_viscosidad + desired_claridad)
+	columns = [{'name':i, 'id':i} for i in df.columns]
+	data = df.to_dict('records')
+	return columns, data
+
