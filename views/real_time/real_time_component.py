@@ -14,24 +14,27 @@ layout = html.Div(
 [
         dbc.Row(
 			dbc.Col(
-				html.H4("In this tab, you can input the desired levels of Bloom, Viscosity and Clarity for the final Gelatin product. The system will provide the closest historical extractions that match these desired levels."), width={"size": 10, "offset": 1}
-				)
+				html.H3("What variables in the process should be adjusted to reach certain levels for Bloom, Viscosity and Clarity?  The system will provide the closest historical extractions that match these desired levels."), 
+				width={"size": "auto"}
+				), align = "center"
 			),
-			html.Br(),
+			#html.Br(),
 			html.Br(),
 		dbc.Row(
             [
 				dbc.Col([
-                    html.P("Please input Bloom (p), in range 25-400"),
-					dbc.Input(type="number", min=25, value = 200, max=400, step=1, id="desired_bloom"),
+					html.H4("1. Enter desired values for Bloom, Viscosity and Clarity"),
+					html.Br(),
+                    html.P("Input Bloom (p), in range 175-300"),
+					dbc.Input(type="number", min=175, value = 250, max=300, step=1, id="desired_bloom"),
 					html.Br(),
 					
-					html.P("Please input Viscosity, in range 100-200"),
-					dbc.Input(type="number", min=100, value = 150, max=200, step=1, id="desired_viscosidad"),
+					html.P("Input Viscosity, in range 27-52"),
+					dbc.Input(type="number", min=27, value = 40, max=52, step=1, id="desired_viscosidad"),
 					html.Br(),
 					
-					html.P("Please input Clarity, in range 50-80"),
-					dbc.Input(type="number", min=50, value = 60, max=80, step=1, id="desired_claridad"),
+					html.P("Input Clarity, in range 23-78"),
+					dbc.Input(type="number", min=23, value = 45, max=78, step=1, id="desired_claridad"),
 					html.Br(),
 					
 					dbc.Button("Calculate", id="knn_trigger_button", n_clicks=0),
@@ -40,19 +43,36 @@ layout = html.Div(
 					html.Br(),
 					
                 ], 
-				width={"size": "auto", "offset": 1}
+				width={"size": 2, "offset": 1}, align = "start"
 				),
-            ]
+				
+				dbc.Col(
+					[
+						html.H4("2. Closest Process Variables that would return the desired levels of Bloom, Viscosity and Clarity"),
+						html.Br(),
+						dash_table.DataTable(id="knn_table", columns = [], data = [])#, style_table={'overflowX': 'auto'})
+					], width={"size": 3, "offset": 1}, align = "start"
+					),
+				
+				dbc.Col(
+					[
+						html.H4("3. What predicted values of the output variables do we obtain if we ran the process with those historical levels?"),
+						html.Br(),
+						dash_table.DataTable(id="knn_table_pred", columns = [], data = [])#, style_table={'overflowX': 'auto'})	
+					], width={"size": 3, "offset": 1}, align = "start"
+					)
+						
+            ], align = "center"
         ),
 		
-		dbc.Row(
-			[
-				dbc.Col(
-				dash_table.DataTable(id="knn_table", columns = [], data = [], style_table={'overflowX': 'auto'}),
-				width={"size": "auto", "offset": 1}
-				)
-			]
-		)
+		#dbc.Row(
+		#	[
+		#		dbc.Col(
+		#		dash_table.DataTable(id="knn_table", columns = [], data = [], style_table={'overflowX': 'auto'}),
+		#		width={"size": 10, "offset": 1}
+		#		)
+		#	]
+		#)
     ],
     className='ccontainer'
 )
