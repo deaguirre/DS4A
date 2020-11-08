@@ -53,6 +53,4 @@ Actualmente la planta Manizales exporta aproximadamente el 35 de su producción 
 Medio Oriente, entre otros y distribuye el 65% al mercado nacional. PROGEL SAS cuenta hoy con más de 50 años de labores en la ciudad de Manizales, 
 durante los cuales se ha distinguido por ser una empresa líder en los mercados y regionalmente se ha destacado por la colaboración que siempre se ha 
 prestado a la comunidad en todo momento.
-
-Tomado de: https://ds4acolombia3.s3.us-east-2.amazonaws.com/Project+Submissions+by+Entities/Project+Submissions+-+No+Contact+Info/Productora+De+Gelatina+Progel.pdf
 '''
