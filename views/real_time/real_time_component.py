@@ -14,7 +14,7 @@ layout = html.Div(
 [
         dbc.Row(
 			dbc.Col(
-				html.H3("Considering the desired product characteristics of the gelatin such as Bloom, Viscosity and Clarity, this tab will display the associated parameters with higher probability of producing the final gelatin with those desired characteristics"), 
+				html.H3("Considering the desired product characteristics of the gelatin such as Bloom, Viscosity and Clarity, this tab will display the associated parameters with higher probability of producing gelatin with those desired characteristics"), 
 				width={"size": 8}
 				), justify = "center"
 			),
