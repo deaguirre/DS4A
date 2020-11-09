@@ -111,6 +111,10 @@ def selectedInstances(dataframe, index, targetList):
     df = dataframe.iloc[index,:]
     df = df.drop(targetList, axis=1)
     dfmean = pd.DataFrame(df.mean()).T
+    dfmean["D03_cuero"] = dfmean["D03_cuero"].round()
+    dfmean["D03_orillo"] = dfmean["D03_orillo"].round()
+    dfmean["D03_patica"] = dfmean["D03_patica"].round()
+    dfmean["D03_vaqueta"] = dfmean["D03_vaqueta"].round()
     dfmin = pd.DataFrame(df.min()).T
     dfmax = pd.DataFrame(df.max()).T
     dfs = [dfmin, dfmean, dfmax]
