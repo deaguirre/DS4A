@@ -116,7 +116,7 @@ for i in process_values:
     for j in i['var_id']:
         ids.append(j)
 
-df=pd.DataFrame(initial,index=ids)
+df=pd.Series(initial,index=ids)
 @app.callback(
     Output("user-input", "children"),
     [Input(str(k),"value") for k in ids],
@@ -133,16 +133,17 @@ def output_list(*args):
     [Output("out1", "children"),
     Output("out2", "children"),
     Output("out3", "children")], 
-    Input("btn-cal", "n_clicks"),
+    [Input("btn-cal", "n_clicks"),Input("btn-res", "n_clicks") ],
     State("user-input", "children"), 
     prevent_initial_call=True)
 
-def Calculate(btn,data):
+def Calculate(btn,btn1,data):
     ctx = dash.callback_context
     if ctx.triggered[0]['prop_id'].split(".")[0]=='btn-cal':
-        df_input = pd.read_json(data,orient='split')
-        print(df_input)
-        return [1,2,3]
+        df_input = pd.read_json(data).set_index('index').drop('name',axis=1).squeeze()
+        return [df_input[0],2,3]
+    if ctx.triggered[0]['prop_id'].split(".")[0]=='btn-res':
+        return ['','','']
 
 @app.callback(
     [Output(str(k),"value") for k in ids],
