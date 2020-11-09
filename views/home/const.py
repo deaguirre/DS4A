@@ -43,10 +43,11 @@ Economist and Master in Economics. Credit risk specialist.
 
 
 #Descripción Progel
-    generalTopic = 'GENERAL DESCRIPTION'
+generalTopic = 'GENERAL DESCRIPTION'
 generalDescription = '''
 Gelco International is the new name for a group of four traditional gelatin manufacturers, present worldwide for over 50 years. These four companies, currently known as: Gelco Colombia (Barranquilla, Colombia); Progel (Manizales, Colombia); Gelco Brasil (Pedreira, Brazil) e Prodegel (Ambato, Ecuador), are now united under the name Gelco International.
 
 PROGEL, located in Manizales in Colombia, is a gelatin plant that has over forty years of experience in this manufacture. In 1969 PROGEL began with a production of 500 tons per year, and in 1973 expanded their production by 50%. In 1985, PROGEL acquired and adapted a new plant to reach 2200 tons per year of gelatin production.
 
 Currently, PROGEL, the Gelco International plant in Manizales, contributes to 45% of this demand. PROGEL’s expansion in Manizales throughout this time has created new jobs bringing the company to a total amount of 160 direct employees. PROGEL has over than 50 years of work experience in the city of Manizales, distinguishing itself as a market leader and regionally standing out for its collaboration with the community at all times.
+'''
