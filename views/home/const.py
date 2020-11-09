@@ -24,7 +24,7 @@ Project planning and control professional. Electrical engineer.
 '''
 
 name4 = '''Daniel Parra'''
-foto4 = '/assets/images/danielParra.png'
+foto4 = '/assets/images/danielP.png'
 description4 = '''
 Pharmaceutical Chemist, Master Candidate in Pharmacology. 
 '''
