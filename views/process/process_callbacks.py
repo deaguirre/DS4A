@@ -9,7 +9,7 @@ from utils.text_processing import validate_pattern
 from knowledge_module.model import CustomModel
 from views.process.const import process_values, modal
 from dash import callback_context
-from knowledge_module import expected_vals
+from knowledge_module.expected_vals import target_prediction
 
 #obj_model = CustomModel()
 c=[]
@@ -128,7 +128,9 @@ def Calculate(btn,btn1,data):
     ctx = dash.callback_context
     if ctx.triggered[0]['prop_id'].split(".")[0]=='btn-cal':
         df_input = pd.read_json(data).set_index('index').drop('name',axis=1).squeeze()
-        #df_output=target_prediction()
+        df = pd.DataFrame(df_input).transpose().drop('',axis=1)
+        df_output=target_prediction(df)
+        print(df_output)
         return [df_input[0],2,3]
     if ctx.triggered[0]['prop_id'].split(".")[0]=='btn-res':
         return ['','','']
