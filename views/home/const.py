@@ -1,56 +1,53 @@
 #Images
 logoProgel = '/assets/images/logoProgel.png'
+linkProgel = 'https://www.gelcointernational.com/en/home'
 logoDS4 = '/assets/images/logoDS4.png'
+linkDS4 = 'https://ds4a-colombia.correlation1.com/'
 
 #Presentación del equipo
-name1 = '''Andrés'''
+name1 = '''Andrés Caballero'''
 foto1 = '/assets/images/andres.png'
 description1 = '''
-Especialista en Mejoramiento Continuo. Magister en Gestión de Innovación e Ingeniero de Producción 
+Continuous Improvement Specialist. Master in Innovation Management and Production Engineer.
 '''
 
-name2 = '''Cristián'''
+name2 = '''Cristian Valencia'''
 foto2 = '/assets/images/cristian.png'
 description2 = '''
-Cientifico de Datos, especialista en análisis de imágenes satelitales. Ingeniero Físico y Magister en Ingeniería Telemática.
+Data Scientist, specialist in analysis of satellite images. Physical Engineer and Master in Telematics Engineering. PhD Candidate in Telematics Engineering.
 '''
 
 name3 = '''Daniel Aguirre'''
 foto3 = '/assets/images/danielAguirre.png'
 description3 = '''
-Profesional de planeación y control de proyectos. Ingeniero electricista. 
+Project planning and control professional. Electrical engineer. 
 '''
 
 name4 = '''Daniel Parra'''
 foto4 = '/assets/images/danielP.png'
 description4 = '''
-Químico Farmacéutico, Candidato a Magíster en Farmacología. 
+Pharmaceutical Chemist, Master Candidate in Pharmacology. 
 '''
 
 name5 = '''Edwar Girón'''
 foto5 = '/assets/images/edwar.png'
 description5 = '''
-Científico de datos y desarrollador IA. Magister en Ingeniería Telemática e Ingeniero en Electrónica y Telecomunicaciones
+Data scientist and AI developer. Master in Telematics Engineering and Electronics and Telecommunications Engineer
 '''
 
-name6 = '''Sebastián'''
+name6 = '''Sebastián Cárdenas'''
 foto6 = '/assets/images/sebastian.png'
 description6 = '''
-Economista y magister en Economía, trabajo en temas de riesgo de crédito.. 
+Economist and Master in Economics. Credit risk specialist.
 '''
 
 
 #Descripción Progel
-generalTopic = 'Descripción General'
+generalTopic = 'GENERAL DESCRIPTION'
 generalDescription = '''
-La empresa Productora de gelatina S.A.S surge hacia el año 1965 con el objetivo de suplir las grandes cantidades de gelatina 
-que debían ser importadas en el país, para su uso principalmente en postres y como aglutinante. Es política para PROGEL S.A.S 
-la aplicación continua de nuevas tecnologías para el mejoramiento constante de los procesos, asegurando el compromiso con el medio 
-ambiente como aporte al desarrollo sostenible, protegiendo los intereses tanto de sus clientes, como de sus accionistas y generaciones 
-futuras que se encuentren encaminadas a la excelencia corporativa.
+Gelco International is the new name for a group of four traditional gelatin manufacturers, present worldwide for over 50 years. These four companies, currently known as: Gelco Colombia (Barranquilla, Colombia); Progel (Manizales, Colombia); Gelco Brasil (Pedreira, Brazil) and Prodegel (Ambato, Ecuador), are now united under the name Gelco International.
 
-Actualmente la planta Manizales exporta aproximadamente el 35 de su producción a los mercados de Centroamérica, Norteamérica, Europa, 
-Medio Oriente, entre otros y distribuye el 65% al mercado nacional. PROGEL SAS cuenta hoy con más de 50 años de labores en la ciudad de Manizales, 
-durante los cuales se ha distinguido por ser una empresa líder en los mercados y regionalmente se ha destacado por la colaboración que siempre se ha 
-prestado a la comunidad en todo momento.
+PROGEL, located in Manizales in Colombia, is a gelatin factory that has more than forty years of experience in its field. In 1969 PROGEL began with a production of 500 tons per year, and in 1973 they expanded their production by 50%. In 1985, PROGEL acquired and adapted a new plant to reach 2200 tons per year of gelatin production.
+
+Currently, PROGEL, the Gelco International plant in Manizales, contributes to 45% of this gelatin prodcution. this factory benefits Manizales creating new jobs bringing the company to a total amount of 160 direct employees. PROGEL has over than 50 years of work experience in the city of Manizales, distinguishing itself as a market leader and regionally standing out for its collaboration with the community at all times.
 '''

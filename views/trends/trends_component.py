@@ -13,7 +13,7 @@ layout = html.Div(
                 dbc.Col(
                     dbc.Card([
                         dbc.CardBody([
-                            html.P('Variables de interés:', className='secondary-title'),
+                            html.P('Select the interest variables to be compared:', className='secondary-title'),
                             html.Div(id='independentSelect', className='select-container select-inline',
                             children = new_select('independentSelection', [])),                                    
                             html.Div(className='select-container select-inline',
@@ -43,7 +43,7 @@ layout = html.Div(
                         ),
                         html.Div(id='displayAlert',
                         children = [
-                            dbc.Alert('En este momento no podemos conectarnos con tu base de datos. Por favor, contacta a soporte.', color='danger')
+                            dbc.Alert('At this time we cannot connect to your database. Please contact support.', color='danger')
                         ]
                         )
                     ],

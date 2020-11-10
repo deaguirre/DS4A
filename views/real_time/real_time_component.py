@@ -14,9 +14,9 @@ layout = html.Div(
 [
         dbc.Row(
 			dbc.Col(
-				html.H3("What variables in the process should be adjusted to reach certain levels for Bloom, Viscosity and Clarity?  The system will provide the closest historical extractions that match these desired levels."), 
-				width={"size": "auto"}
-				), align = "center"
+				html.H3("Considering the desired product characteristics of the gelatin such as Bloom, Viscosity and Clarity, this tab will display the associated parameters with higher probability of producing gelatin with those desired characteristics"), 
+				width={"size": 8}
+				), justify = "center"
 			),
 			#html.Br(),
 			html.Br(),
@@ -48,7 +48,7 @@ layout = html.Div(
 				
 				dbc.Col(
 					[
-						html.H4("2. Closest Process Variables that would return the desired levels of Bloom, Viscosity and Clarity"),
+						html.H4("2. Process variables measurements that would produce similar levels of Bloom, Viscosity and Clarity as entered in 1."),
 						html.Br(),
 						dash_table.DataTable(id="knn_table", columns = [], data = [])#, style_table={'overflowX': 'auto'})
 					], width={"size": 3, "offset": 1}, align = "start"
@@ -56,7 +56,7 @@ layout = html.Div(
 				
 				dbc.Col(
 					[
-						html.H4("3. What predicted values of the output variables do we obtain if we ran the process with those historical levels?"),
+						html.H4("3. Using the process variable measurements found, this will be the expected Bloom, Viscosity and Clarity levels"),
 						html.Br(),
 						dash_table.DataTable(id="knn_table_pred", columns = [], data = [])#, style_table={'overflowX': 'auto'})	
 					], width={"size": 3, "offset": 1}, align = "start"
