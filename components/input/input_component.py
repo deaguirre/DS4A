@@ -24,6 +24,8 @@ def new_input_text(**kwargs):
                 id=kwargs['id'], 
                 placeholder=kwargs['placeholder'], 
                 type=kwargs['type'],
+                value=kwargs['value'],
+                debounce=kwargs['debounce'],
                 bs_size='sm',
                 
                 )

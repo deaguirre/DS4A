@@ -1,57 +1,3 @@
-
-
-items_modal = [
-    {
-        'id':'input1', 
-        'label':'Variable 1', 
-        'placeholder':'Ingrese su nombre',
-        'type':'text',
-        'kind':'input_text'
-    },
-    {
-        'id':'input2', 
-        'label':'Variable 2', 
-        'placeholder':'Ingrese su apellido',
-        'type':'text',
-        'kind':'input_text'
-    }
-]
-
-items_modal2 = [
-    {
-        'id':'input3', 
-        'label':'Variable 3', 
-        'placeholder':'Ingrese su nombre',
-        'type':'text',
-        'kind':'input_text'
-    },
-    {
-        'id':'input4', 
-        'label':'Variable 4', 
-        'placeholder':'Ingrese su apellido',
-        'type':'text',
-        'kind':'input_text'
-    }
-]
-
-items_modal3 = [
-    {
-        'id':'input5', 
-        'label':'Variable 3', 
-        'placeholder':'Ingrese su nombre',
-        'type':'text',
-        'kind':'input_text'
-    },
-    {
-        'id':'input6', 
-        'label':'Variable 4', 
-        'placeholder':'Ingrese su apellido',
-        'type':'text',
-        'kind':'input_text'
-    }
-]
-
-
 nodes = {
     'nodes':[
             {
@@ -217,22 +163,28 @@ nodes = {
 }
 
 process_values=[
-    {'id':1,
+    {'id':5,
     'name':'Extraction',
     'var': ['Var1','Var2'],
     'var_id':['Evar1','Evar2'],
     'initial':[1,2]
     },
-    {'id':2,
+    {'id':9,
     'name':'Ultrafiltration-UF1',
     'var': ['Var1','Var2','Var3'],
     'var_id':['UEvar1','UEvar2','UEvar3'],
     'initial':[1,2,3]
     },
-     {'id':3,
+     {'id':10,
     'name':'Ultrafiltration-UF2',
     'var': ['Var1','Var2'],
     'var_id':['U2Evar1','U2Evar2'],
+    'initial':[1,2]
+    },
+         {'id':4,
+    'name':'Ultrafiltration-UF2',
+    'var': ['Var1','Var2'],
+    'var_id':['U2Evar123','U2Evar243'],
     'initial':[1,2]
     },
     ]
@@ -247,3 +199,17 @@ output_values=[
     'name':'Viscosity'
     }
     ]
+
+modal = {}
+for i in range(len(process_values)):
+        modal['items_modal'+str(i+1)] = [
+        {
+        'id':process_values[i]['var_id'][j],  
+        'label':process_values[i]['var'][j], 
+        'placeholder':'input value',
+        'type':'number',
+        'kind':'input_text',
+        'debounce':True,
+        'value':process_values[i]['initial'][j],
+        } for j in range(len(process_values[i]['var']))]
+

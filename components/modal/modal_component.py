@@ -25,25 +25,20 @@ def new_modal(header, items, func, id):
                     dbc.ModalFooter(
                         dbc.ButtonGroup(
                             [
-                                dbc.Button('Cancel', 
-                                id='cancelModal_{}'.format(id), 
-                                className='ml-auto', 
-                                style={
-                                    'marginRight': '2rem',
-                                    'borderTopRightradius': 0,
-                                    'borderBottomRightradius': 0
-                                    },
+                                dbc.Button('Accept', 
+                                id='acceptModal_{}'.format(id), 
+                                color="primary", className="mr-1", 
                                 n_clicks_timestamp='0'
                                     ),
-                                dbc.Button('Update', 
-                                id='updateModal_{}'.format(id), 
-                                className='ml-auto',
-                                style={
-                                    'borderTopRightradius': 0,
-                                    'borderBottomRightradius': 0
-                                    },
-                                n_clicks_timestamp='0'
-                                    ),
+                                #dbc.Button('Update', 
+                                #id='updateModal_{}'.format(id), 
+                                #color="secondary", className="mr-1",
+                                #style={
+                                #    'borderTopRightradius': 0,
+                                #    'borderBottomRightradius': 0
+                                #    },
+                                #n_clicks_timestamp='0'
+                                #    ),
                                 
                             ]
                         )

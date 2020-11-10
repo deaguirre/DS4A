@@ -3,7 +3,7 @@ import dash_html_components as html
 import views.process.process_callbacks
 from components.modal.modal_component import new_modal
 from components.network.network_component import new_network
-from views.process.const import items_modal, items_modal2,nodes, items_modal3, process_values, output_values
+from views.process.const import process_values, output_values,nodes, modal
 from components.input.input_component import new_inputs
 
 def make_output(i):
@@ -64,37 +64,25 @@ layout = html.Div(
             children = [ 
         dbc.Row(
             [
-            dbc.Col(  
-                dbc.Card([
-                    dbc.CardHeader(
-                        html.P('Input Process Values',className='secondary-title')),
-                    dbc.CardBody(
-                [make_item(process_values[i]) for i in range(len(process_values))],
-          
-                    )
-                ],
-                className='card-content') 
-                 ),
+ #            dbc.Col(  
+ #               dbc.Card([
+ #                   dbc.CardHeader(
+ #                       html.P('Input Process Values',className='secondary-title')),
+ #                   dbc.CardBody(
+ #               [make_item(process_values[i]) for i in range(len(process_values))],
+ #         
+ #                   )
+ #               ],
+ #               className='card-content') 
+ #                ), 
             dbc.Col(
                 html.Div(
                     [
-                    new_network('net', nodes),
-                    new_modal('Extraction', new_inputs(items_modal), 'funcion', 'processM1'),
-                    new_modal('Centrifugation', new_inputs(items_modal2), 'funcion', 'processM2'),
-                    new_modal('Filtration', new_inputs(items_modal3), 'funcion', 'processM3'),
+                    new_network('net', nodes)]+
+                    [new_modal(process_values[i]['name'], new_inputs(modal[str(list(modal.keys())[i])]), 'funcion', str(list(modal.keys())[i])) for i in range(len(modal))]
 
-                    new_modal('Ionic Exchange', new_inputs(items_modal3), 'funcion', 'processM4'),
-                    new_modal('Ultrafiltration UF1', new_inputs(items_modal3), 'funcion', 'processM5'),
-                    new_modal('Ultrafiltration UF2', new_inputs(items_modal3), 'funcion', 'processM6'),
-                    new_modal('Flash Evaporation', new_inputs(items_modal3), 'funcion', 'processM7'),
-                    new_modal('Sterilization', new_inputs(items_modal3), 'funcion', 'processM8'),
-                    new_modal('Gelification', new_inputs(items_modal3), 'funcion', 'processM9'),
-
-                    new_modal('Gelification', new_inputs(items_modal3), 'funcion', 'processM10'),
-
-                    ]
                 ),
-                width=6
+                width=9
             ),
             dbc.Col(
                 dbc.Card([
