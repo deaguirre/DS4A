@@ -20,7 +20,7 @@ Data Scientist, specialist in analysis of satellite images. Physical Engineer an
 name3 = '''Daniel Aguirre'''
 foto3 = '/assets/images/danielAguirre.png'
 description3 = '''
-Project planning and control professional. Electrical engineer. 
+Planning and control engineer. Electrical engineer. 
 '''
 
 name4 = '''Daniel Parra'''

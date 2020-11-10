@@ -17,7 +17,7 @@ def make_output(i):
                 )
             ]
             )
-
+"""
 def make_input(i,n):
     return dbc.Row(
         [
@@ -57,7 +57,7 @@ def make_item(i):
                 #width=3,
                 #align='center' 
     )
-
+"""
 
 layout = html.Div(
     className='container',

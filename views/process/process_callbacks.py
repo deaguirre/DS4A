@@ -129,9 +129,12 @@ def Calculate(btn,btn1,data):
     if ctx.triggered[0]['prop_id'].split(".")[0]=='btn-cal':
         df_input = pd.read_json(data).set_index('index').drop('name',axis=1).squeeze()
         df = pd.DataFrame(df_input).transpose().drop('',axis=1)
+        df.columns= df.columns.str.lower()
         df_output=target_prediction(df)
-        print(df_output)
-        return [df_input[0],2,3]
+        bloom=round(df_output[0][0],2)
+        viscosity=round(df_output[0][1],2)
+        clarity=round(df_output[0][2],2)
+        return [bloom, clarity, viscosity]
     if ctx.triggered[0]['prop_id'].split(".")[0]=='btn-res':
         return ['','','']
 
