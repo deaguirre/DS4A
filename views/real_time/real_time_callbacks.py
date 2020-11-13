@@ -48,12 +48,11 @@ def fill_table(n_clicks, desired_bloom, desired_viscosidad, desired_claridad):
 	df_predictions = target_prediction_2(dataframe2)
 	df_predictions = df_predictions.round(2)
 	df_predictions = df_predictions.reset_index()
-	df_predictions.columns = ['Variable', 'Min_Params', 'Mean_Params', 'Max_Params']
+	df_predictions.columns = ['Variable', 'Min', 'Mean', 'Max']
 			
 	#draw tables
 	columns = [{'name':i, 'id':i} for i in dataframeT2.columns]
 	data = dataframeT2.to_dict('records')
-	
 	columns_pred = [{'name':i, 'id':i} for i in df_predictions.columns]
 	data_pred = df_predictions.to_dict('records')
 	

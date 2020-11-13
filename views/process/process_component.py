@@ -3,78 +3,26 @@ import dash_html_components as html
 import views.process.process_callbacks
 from components.modal.modal_component import new_modal
 from components.network.network_component import new_network
-from views.process.const import process_values, output_values,nodes, modal
+from views.process.const import process_values, output_values,nodes,modal
 from components.input.input_component import new_inputs
 
 def make_output(i):
-        return dbc.Row(
-            [
-                dbc.Col(
-                html.P(f"{i['name']}")
-                ),
-                dbc.Col(
-                html.Div(id=f"{i['id']}")
-                )
-            ]
-            )
-"""
-def make_input(i,n):
     return dbc.Row(
         [
             dbc.Col(
-            html.P(f"{i['var'][n]}")
+            html.P(f"{i['name']}")
             ),
             dbc.Col(
-            dbc.Input(id=i['var_id'][n], type="number",placeholder="input value",debounce=True,value=i['initial'][n]),
+            html.Div(id=f"{i['id']}")
             )
-        ]
-    )
-
-
-def make_item(i):
-    # we use this function to make the example items to avoid code duplication
-    return dbc.Card(
-        [
-            dbc.CardHeader(
-                html.H2(
-                    dbc.Button(
-                        f"{i['name']}",
-                        color="link",
-                        id=f"group-{i['id']}-toggle",
-                    )
-                )
-            ),
-            
-                dbc.Collapse(
-                    dbc.CardBody(
-                        #[ make_input(i['name'],j) for j in i['var']
-                        [make_input(i,j) for j in range(len(i['var']))
-                        ]),
-                    id=f"collapse-{i['id']}"
-                ),
-        ],
-                className="accordion",
-                #width=3,
-                #align='center' 
-    )
-"""
-
+            ]
+        )
+        
 layout = html.Div(
     className='container',
             children = [ 
         dbc.Row(
             [
- #            dbc.Col(  
- #               dbc.Card([
- #                   dbc.CardHeader(
- #                       html.P('Input Process Values',className='secondary-title')),
- #                   dbc.CardBody(
- #               [make_item(process_values[i]) for i in range(len(process_values))],
- #         
- #                   )
- #               ],
- #               className='card-content') 
- #                ), 
             dbc.Col(
                 html.Div(
                     [
