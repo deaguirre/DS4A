@@ -1,17 +1,20 @@
+import dash_html_components as html
 import pandas as pd
 import json
 import dash
-from dash.dependencies import Input, Output, State
-from app import app
-import dash_html_components as html
-from utils.action_buttons import get_button_pressed
-from utils.text_processing import validate_pattern
-from knowledge_module.model import CustomModel
-from views.process.const import process_values, modal
-from dash import callback_context
-from knowledge_module.expected_vals import target_prediction
 
-#obj_model = CustomModel()
+from knowledge_module.expected_vals import target_prediction
+from knowledge_module.model import CustomModel
+from utils.text_processing import validate_pattern
+from utils.action_buttons import get_button_pressed
+from views.process.const import process_values, modal
+from views.trends.trends_callbacks import order_columns
+from dash.dependencies import Input, Output, State
+from dash import callback_context
+from app import app
+
+
+## Values from Const.py for dynamic creation of elements in process tab
 c=[]
 for a in modal:
    c.append([modal[a][m]['id'] for m in range(len(modal[a]))])
@@ -27,17 +30,23 @@ for i in process_values:
         ids.append(j)
 id=[]
 for i in range(len(process_values)):
-    id.append(process_values[i]['id'])        
+    id.append(process_values[i]['id'])   
+
+df=pd.Series(initial,index=ids)     
+
+
+## Callback for the accept button when a modal is open
 
 @app.callback(
     Output('net', 'selection'),
     [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
-    #[Input('updateModal_'+str(m),'n_clicks_timestamp') for m in modal]
 
 )
 def reset_net(*args):
     return {'nodes': [], 'edges': []}
 
+##Callback for the interaction between the user and the process graph
+## It allows to open the the modal with proper variables
 @app.callback(
     [Output(str(m),'is_open') for m in modal],
     [Input('net', 'selection')]+
@@ -66,44 +75,8 @@ def modal_events_controller(net_selection,*args):
     return m
 
 
-    #elif(validate_pattern('update', ctxt.triggered[0]['prop_id'])):
-       # c=[]
-       # for a in modal:
-       #  c.append([modal[a][m]['id'] for m in range(len(modal[a]))])
-       # inputs =[item for sublist in c for item in sublist]
-       # obj_model.set_variables(inputs)
-    #    m=[False]*len(modal)
-    #return m
-
-## User panel for input data
-## For collapse menu
-#@app.callback(
-#    [Output(f"collapse-{i}", "is_open") for i in id],
-#    [Input(f"group-{i}-toggle", "n_clicks") for i in id],
-#    [State(f"collapse-{i}", "is_open") for i in id],
-#)
-#def toggle_accordion(*args):
-#    id=[]
-#    for i in range(len(process_values)):
-#        id.append(process_values[i]['id'])      
-#    
-#    ctx = dash.callback_context
-#    if not ctx.triggered:
-#        m=[False]*len(process_values)
-#        return m
-#    else:
-#        button_id = ctx.triggered[0]["prop_id"].split(".")[0]
-#
-#    for i in range(len(process_values)):    
-#        if button_id == f'group-{id[i]}-toggle' and args[i]:
-#            m=[False]*len(process_values)
-#            m[i]=not args[i+len(process_values)]
-#            return m
-
-## For input data
-
-
-df=pd.Series(initial,index=ids)
+## Callback for the interaction of input values
+## It allows to save the changes of variables in a DataFrame
 @app.callback(
     Output("user-input", "children"),
     [Input(str(k),"value") for k in ids],
@@ -114,8 +87,7 @@ def output_list(*args):
     df[ctx.triggered[0]['prop_id'].split(".")[0]]=ctx.triggered[0]['value']
     return  df.to_json(date_format='iso', orient='split')
 
-## For buttons
-
+## Callback for the interaction with the buttton Calculate and Reset
 @app.callback(
     [Output("out1", "children"),
     Output("out2", "children"),
@@ -130,6 +102,7 @@ def Calculate(btn,btn1,data):
         df_input = pd.read_json(data).set_index('index').drop('name',axis=1).squeeze()
         df = pd.DataFrame(df_input).transpose().drop('',axis=1)
         df.columns= df.columns.str.lower()
+        df=df[order_columns]
         df_output=target_prediction(df)
         bloom=round(df_output[0][0],2)
         viscosity=round(df_output[0][1],2)
