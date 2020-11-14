@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>views.process.const API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>views.process.const</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">nodes = {
+    &#39;nodes&#39;:[
+            {
+                &#39;id&#39;:1,
+                &#39;label&#39;: &#39;Bait&#39;, &#39;color&#39;:&#39;#c8ffa8&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/00_meat.png&#39;,&#39;shape&#39;:&#39;image&#39;,
+                &#39;x&#39;:0, &#39;y&#39;:200, &#39;size&#39;:50
+            },
+            {
+                &#39;id&#39;:2,
+                &#39;label&#39;: &#39;Washing&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/01_lavado.svg&#39;,&#39;shape&#39;:&#39;image&#39;, 
+                &#39;x&#39;:200, &#39;y&#39;:200, &#39;size&#39;:30
+            },
+            {
+                &#39;id&#39;:3,
+                &#39;label&#39;: &#39;Base \n Treatment&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/02_tratamiento.svg&#39;,&#39;shape&#39;:&#39;image&#39;, 
+                &#39;x&#39;:400, &#39;y&#39;:200, &#39;size&#39;:40
+            },
+            {
+                &#39;id&#39;:4,
+                &#39;label&#39;: &#39;Acid \n Treatment&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/02_tratamiento.svg&#39;,&#39;shape&#39;:&#39;image&#39;, 
+                &#39;x&#39;:600, &#39;y&#39;:200, &#39;size&#39;:40 
+            },
+            {
+                &#39;id&#39;:5,
+                &#39;label&#39;: &#39;Extraction&#39;,
+                &#39;image&#39;:&#39;./assets/icons/03_extraccion.svg&#39;,&#39;shape&#39;:&#39;image&#39;, 
+                &#39;x&#39;:800, &#39;y&#39;:200, &#39;size&#39;:50
+            },
+            {
+                &#39;id&#39;:6,
+                &#39;label&#39;: &#39;Centrifugation&#39;,
+                &#39;image&#39;:&#39;./assets/icons/04_centrifugacion.svg&#39;,&#39;shape&#39;:&#39;image&#39;, 
+                &#39;x&#39;:0, &#39;y&#39;:400, &#39;size&#39;:30
+            },
+            {
+                &#39;id&#39;:7,
+                &#39;label&#39;: &#39;Filtration&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/05_filtracion.svg&#39;,&#39;shape&#39;:&#39;image&#39;,
+                &#39;x&#39;:200, &#39;y&#39;:400, &#39;size&#39;:40
+            },
+            {
+                &#39;id&#39;:8,
+                &#39;label&#39;: &#39;Ionic \n Exchange&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/06_intercambio.svg&#39;,&#39;shape&#39;:&#39;image&#39;,
+                &#39;x&#39;:400, &#39;y&#39;:400, &#39;size&#39;:30
+            },
+            {
+                &#39;id&#39;:9,
+                &#39;label&#39;: &#39;Ultrafiltration \n UF1&#39;,
+                &#39;image&#39;:&#39;./assets/icons/07_ultrafiltracion.svg&#39;,&#39;shape&#39;:&#39;image&#39;, 
+                &#39;x&#39;:600, &#39;y&#39;:400, &#39;size&#39;:40
+            },
+            {
+                &#39;id&#39;:10,
+                &#39;label&#39;: &#39;Ultrafiltration \n UF2&#39;,
+                &#39;image&#39;:&#39;./assets/icons/07_ultrafiltracion.svg&#39;,&#39;shape&#39;:&#39;image&#39;, 
+                &#39;x&#39;:800, &#39;y&#39;:400, &#39;size&#39;:40
+            },
+            {
+                &#39;id&#39;:11,
+                &#39;label&#39;: &#39;Flash \n Evaporation&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/01_lavado.svg&#39;,&#39;shape&#39;:&#39;image&#39;,
+                &#39;x&#39;:1000, &#39;y&#39;:400, &#39;size&#39;:40
+            },
+            {
+                &#39;id&#39;:12,
+                &#39;label&#39;: &#39;Sterilization&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/08_esterilizador.svg&#39;,&#39;shape&#39;:&#39;image&#39;,
+                &#39;x&#39;:0, &#39;y&#39;:600, &#39;size&#39;:40
+            },
+            {
+                &#39;id&#39;:13,
+                &#39;label&#39;: &#39;Gelification&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/09_gelificacion.svg&#39;,&#39;shape&#39;:&#39;image&#39;,
+                &#39;x&#39;:200, &#39;y&#39;:550, &#39;size&#39;:30
+            },
+            {
+                &#39;id&#39;:14,
+                &#39;label&#39;: &#39;Refrigeration&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/10_refrigeracion.svg&#39;,&#39;shape&#39;:&#39;image&#39;,
+                &#39;x&#39;:200, &#39;y&#39;:650, &#39;size&#39;:30
+            },
+            {
+                &#39;id&#39;:15,
+                &#39;label&#39;: &#39;Drying&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/11_secador.svg&#39;,&#39;shape&#39;:&#39;image&#39;,
+                &#39;x&#39;:400, &#39;y&#39;:600, &#39;size&#39;:40
+            },
+            {
+                &#39;id&#39;:16,
+                &#39;label&#39;: &#39;Grinding&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/12_molienda.svg&#39;,&#39;shape&#39;:&#39;image&#39;,
+                &#39;x&#39;:550, &#39;y&#39;:600, &#39;size&#39;:40
+            },
+            {
+                &#39;id&#39;:17,
+                &#39;label&#39;: &#39;Separation \n Mixture&#39;, 
+                &#39;shape&#39;:&#39;box&#39;,
+                &#39;x&#39;:700, &#39;y&#39;:600
+            },
+            {
+                &#39;id&#39;:18,
+                &#39;label&#39;: &#39;Gelatin&#39;, &#39;shape&#39;:&#39;image&#39;, &#39;color&#39;:&#39;#fafa8e&#39;, 
+                &#39;image&#39;:&#39;./assets/icons/id18_gelatin.jpg&#39;,
+                &#39;x&#39;:900, &#39;y&#39;:600
+            }, 
+            {
+                &#39;id&#39;:&#39;conn_1a&#39;, &#39;shape&#39;:&#39;text&#39;, &#39;color&#39;:&#39;#ffffff&#39;,
+                &#39;x&#39;: 800, &#39;y&#39;:320
+            },
+            {
+                &#39;id&#39;:&#39;conn_1b&#39;, &#39;shape&#39;:&#39;text&#39;, &#39;color&#39;:&#39;#ffffff&#39;,
+                &#39;x&#39;: 0, &#39;y&#39;:320
+            },
+            {
+                &#39;id&#39;:&#39;conector_2a&#39;, &#39;shape&#39;:&#39;text&#39;, &#39;color&#39;:&#39;#ffffff&#39;,
+                &#39;x&#39;: 1000, &#39;y&#39;:500
+            },
+            {
+                &#39;id&#39;:&#39;conector_2b&#39;, &#39;shape&#39;:&#39;text&#39;, &#39;color&#39;:&#39;#ffffff&#39;,
+                &#39;x&#39;: 0, &#39;y&#39;:500
+            }
+        ],
+        &#39;edges&#39;:[
+            {&#39;id&#39;: &#39;1-2&#39;, &#39;from&#39;:1, &#39;to&#39;:2, &#39;arrows&#39;:&#39;to&#39;},
+            {&#39;id&#39;: &#39;2-3&#39;, &#39;from&#39;:2, &#39;to&#39;:3, &#39;arrows&#39;:&#39;to&#39;},
+
+            {&#39;id&#39;: &#39;3-4&#39;, &#39;from&#39;:3, &#39;to&#39;:4, &#39;arrows&#39;:&#39;to&#39;},
+            {&#39;id&#39;: &#39;4-5&#39;, &#39;from&#39;:4, &#39;to&#39;:5, &#39;arrows&#39;:&#39;to&#39;},
+            
+            {&#39;id&#39;: &#39;5-6a&#39;, &#39;from&#39;:5, &#39;to&#39;:&#39;conn_1a&#39;, &#39;color&#39;:&#39;#0341fc&#39;},
+            {&#39;id&#39;: &#39;5-6b&#39;, &#39;from&#39;:&#39;conn_1a&#39;, &#39;to&#39;:&#39;conn_1b&#39;, 
+                &#39;color&#39;:&#39;#0341fc&#39;, &#39;label&#39;:&#39;Raw \n Extract&#39;},
+            {&#39;id&#39;: &#39;5-6c&#39;, &#39;from&#39;:&#39;conn_1b&#39;, &#39;to&#39;:6, &#39;arrows&#39;:&#39;to&#39;, &#39;color&#39;:&#39;#0341fc&#39;},
+
+            {&#39;id&#39;: &#39;6-7&#39;, &#39;from&#39;:6, &#39;to&#39;:7, &#39;arrows&#39;:&#39;to&#39;},
+            {&#39;id&#39;: &#39;7-8&#39;, &#39;from&#39;:7, &#39;to&#39;:8, &#39;arrows&#39;:&#39;to&#39;},
+            {&#39;id&#39;: &#39;8-9&#39;, &#39;from&#39;:8, &#39;to&#39;:9, &#39;arrows&#39;:&#39;to&#39;,
+            &#39;label&#39;:&#39;Light \n liquour&#39;},
+            {&#39;id&#39;: &#39;9-10&#39;, &#39;from&#39;:9, &#39;to&#39;:10, &#39;arrows&#39;:&#39;to&#39;},
+            
+            {&#39;id&#39;: &#39;10-11&#39;, &#39;from&#39;:10, &#39;to&#39;:11, &#39;arrows&#39;:&#39;to&#39;},
+
+            {&#39;id&#39;: &#39;11-12a&#39;, &#39;from&#39;:11, &#39;to&#39;:&#39;conector_2a&#39;, &#39;color&#39;:&#39;#0341fc&#39;},
+            {&#39;id&#39;: &#39;11-12b&#39;, &#39;from&#39;:&#39;conector_2a&#39;, &#39;to&#39;:&#39;conector_2b&#39;, &#39;color&#39;:&#39;#0341fc&#39;,
+            &#39;label&#39;:&#39;Heavy \n liquour&#39;},
+            {&#39;id&#39;: &#39;11-12c&#39;, &#39;from&#39;:&#39;conector_2b&#39;, &#39;to&#39;:12, &#39;arrows&#39;:&#39;to&#39;, &#39;color&#39;:&#39;#0341fc&#39;},
+            
+            {&#39;id&#39;: &#39;12-13&#39;, &#39;from&#39;:12, &#39;to&#39;:13},
+            {&#39;id&#39;: &#39;12-14&#39;, &#39;from&#39;:12, &#39;to&#39;:14},
+            
+            {&#39;id&#39;: &#39;13-15&#39;, &#39;from&#39;:13, &#39;to&#39;:15, &#39;arrows&#39;:&#39;to&#39;},
+            {&#39;id&#39;: &#39;14-15&#39;, &#39;from&#39;:14, &#39;to&#39;:15, &#39;arrows&#39;:&#39;to&#39;},
+
+            {&#39;id&#39;: &#39;15-16&#39;, &#39;from&#39;:15, &#39;to&#39;:16, &#39;arrows&#39;:&#39;to&#39;},
+            {&#39;id&#39;: &#39;16-17&#39;, &#39;from&#39;:16, &#39;to&#39;:17, &#39;arrows&#39;:&#39;to&#39;},
+            {&#39;id&#39;: &#39;17-18&#39;, &#39;from&#39;:17, &#39;to&#39;:18, &#39;arrows&#39;:&#39;to&#39;},
+        ]
+}
+
+process_values=[
+    {&#39;id&#39;:1,
+    &#39;name&#39;:&#39;Bait&#39;,
+    &#39;var&#39;: [
+&#34;RawMaterial Press&#34;,
+&#34;Carnage&#34;,
+&#34;Leather&#34;,
+&#34;Rounds&#34;,
+&#34;Hoof&#34;,
+&#34;Cowhide Leather&#34;],
+    &#39;var_id&#39;:[
+&#34;D03_vap_press&#34;,
+&#34;D03_carnaza&#34;,
+&#34;D03_cuero&#34;,
+&#34;D03_orillo&#34;,
+&#34;D03_patica&#34;,
+&#34;D03_vaqueta&#34;],
+    &#39;initial&#39;:[
+55.0,
+1.0,
+1.0,
+0.0,
+0.0,
+0.0]
+    },
+
+    {&#39;id&#39;:5,
+    &#39;name&#39;:&#34;Extraction&#34;,
+    &#39;var&#39;: [&#34;ph Light Liquor&#34;,
+&#34;Total Residue All Reactors in&#34;,
+&#34;Extraction Duration h&#34;,
+&#34;Clarity Light Liquor&#34;],
+    &#39;var_id&#39;:[&#34;D04_ph_initial_liq&#34;,
+&#34;D04_total_residue&#34;,
+&#34;D04_extract_duration&#34;,
+&#34;D04_clarity_initial_liq&#34;],
+    &#39;initial&#39;:[2.01,
+25.5,
+0.0,
+100.0]
+    },
+     {&#39;id&#39;:8,
+    &#39;name&#39;:&#34;Ionic Exchange&#34;,
+    &#39;var&#39;: [&#34;Towers pH&#34;,
+&#34;pH Soda Outlet UF2&#34;],
+    &#39;var_id&#39;:[&#34;D06_phT&#34;,
+&#34;D06_phUF2&#34;,],
+    &#39;initial&#39;:[7.872,
+6.622]
+    },
+         {&#39;id&#39;:11,
+    &#39;name&#39;:&#34;Flash Evaporation&#34;,
+    &#39;var&#39;: [&#34;Condensing Temperature&#34;,
+&#34;Liquor Temp Separator Leg&#34;,
+&#34;Heavy Liquor Temp&#34;,
+&#34;Heavy Liquor Concentration&#34;,
+&#34;Triplex A Frequency&#34;,
+&#34;Triplex B Frequency&#34;,
+&#34;Triplex D Frequency&#34;,
+&#34;Vacuum Pressure&#34;],
+    &#39;var_id&#39;:[&#34;D09_T_condensing&#34;,
+&#34;D09_T_leg&#34;,
+&#34;D09_T_liquor&#34;,
+&#34;D09_Conc_liquor&#34;,
+&#34;D09_Tri_FrecA&#34;,
+&#34;D09_Tri_FrecB&#34;,
+&#34;D09_Tri_FrecD&#34;,
+&#34;D10_P_vaccum&#34;],
+    &#39;initial&#39;:[2.42,
+59.51,
+61.6,
+27.1,
+26.6,
+19.5,
+15.3,
+20.8181]
+    },
+    
+         {&#39;id&#39;:12,
+    &#39;name&#39;:&#34;Sterilization&#34;,
+    &#39;var&#39;: [&#34;Sterilization Temp&#34;,
+&#34;Water Outlet Temp&#34;],
+    &#39;var_id&#39;:[&#34;D10_T_esteril&#34;,
+&#34;D10_T_out_water&#34;],
+    &#39;initial&#39;:[142.0,
+36.045]
+    },
+             {&#39;id&#39;:14,
+    &#39;name&#39;:&#34;Refrigeration&#34;,
+    &#39;var&#39;: [&#34;Suction Temperature&#34;],
+    &#39;var_id&#39;:[&#34;D11_Ts_ref&#34;],
+    &#39;initial&#39;:[20.976]
+    },
+             {&#39;id&#39;:15,
+    &#39;name&#39;:&#34;Drying&#34;,
+    &#39;var&#39;: [&#34;Water Exchanger Press&#34;,
+&#34;Kathene Level&#34;,
+&#34;Atomization Conditioner Press&#34;,
+&#34;Atomization Regenerator Press&#34;,
+&#34;Cambridge Filter Dropout Press&#34;,
+&#34;Conditioner Dropout Press&#34;,
+&#34;Regenerator Dropout Press&#34;,
+&#34;Air Temp A&#34;,
+&#34;Air Temp B&#34;,
+&#34;Air Temp D&#34;,
+&#34;Zone 3D Temp&#34;,
+&#34;Vapor Pressure A&#34;,
+&#34;Vapor Pressure B&#34;,
+&#34;Vapor Pressure D&#34;,
+&#34;Zone 2B Temp&#34;,
+&#34;Zone 3A Temp&#34;,
+&#34;Zone 3B Temp&#34;,
+&#34;Zone 4A Temp&#34;,
+&#34;Zone 4B Temp&#34;,
+&#34;Zone 4D Temp&#34;,
+&#34;Zone 5A Temp&#34;,
+&#34;Zone 5B Temp&#34;,
+&#34;Zone 5D Temp&#34;,
+&#34;Zone 6A Temp&#34;,
+&#34;Zone 6B Temp&#34;,
+&#34;Zone 6D Temp&#34;,
+&#34;Zone 7A Temp&#34;,
+&#34;Zone 7B Temp&#34;,
+&#34;Zone 7D Temp&#34;],
+    &#39;var_id&#39;:[&#34;D12_P_Exch_Water&#34;,
+&#34;D12_Kath_Lvl&#34;,
+&#34;D12_P_atom_cond&#34;,
+&#34;D12_P_atom_regn&#34;,
+&#34;D12_P_filt&#34;,
+&#34;D12_P_cond&#34;,
+&#34;D12_P_regen&#34;,
+&#34;D12_TA&#34;,
+&#34;D12_TB&#34;,
+&#34;D12_TD&#34;,
+&#34;D14_3D&#34;,
+&#34;D14_vpA&#34;,
+&#34;D14_vpB&#34;,
+&#34;D14_vpD&#34;,
+&#34;D14_T2B&#34;,
+&#34;D14_T3A&#34;,
+&#34;D14_T3B&#34;,
+&#34;D14_T4A&#34;,
+&#34;D14_T4B&#34;,
+&#34;D14_T4D&#34;,
+&#34;D14_T5A&#34;,
+&#34;D14_T5B&#34;,
+&#34;D14_T5D&#34;,
+&#34;D14_T6A&#34;,
+&#34;D14_T6B&#34;,
+&#34;D14_T6D&#34;,
+&#34;D14_T7A&#34;,
+&#34;D14_T7B&#34;,
+&#34;D14_T7D&#34;],
+    &#39;initial&#39;:[4.25,
+12.025,
+4.5,
+0.2,
+0.42,
+1.8,
+0.9,
+37.875,
+37.125,
+50.025,
+44.5,
+40.0,
+39.0,
+39.5,
+45.25,
+50.25,
+50.25,
+55.25,
+55.25,
+49.75,
+60.25,
+61.25,
+55.5,
+60.0,
+62.5,
+59.25,
+67.0,
+69.75,
+63.75]
+    },
+             {&#39;id&#39;:16,
+    &#39;name&#39;:&#34;Grinding&#34;,
+    &#39;var&#39;: [&#34;Hydrogen Peroxide ppm&#34;,
+&#34;Sulfur Dioxide ppm&#34;,
+&#34;Clarity Light Liquor Tank1 NTU&#34;,
+&#34;Clarity Light Liquor Tank3 NTU&#34;,
+&#34;Clarity Liquor Press Filter1&#34;,
+&#34;Clarity Liquor Press Filter2&#34;,
+&#34;Clarity Liquor Press Filter4&#34;],
+    &#39;var_id&#39;:[&#34;D05_peroxido_hid&#34;,
+&#34;D05_dioxido_azufre&#34;,
+&#34;D05_NTU_L1&#34;,
+&#34;D05_NTU_L3&#34;,
+&#34;D05_NTU_FP1&#34;,
+&#34;D05_NTU_FP2&#34;,
+&#34;D05_NTU_FP4&#34;],
+    &#39;initial&#39;:[40.266,
+12.727,
+128.25,
+26.666,
+57.5,
+29.333,
+17.5]
+    }
+
+    ]
+output_values=[
+    {&#39;id&#39;:&#39;out1&#39;,
+    &#39;name&#39;:&#39;Bloom&#39;,
+    },
+     {&#39;id&#39;:&#39;out2&#39;,
+    &#39;name&#39;:&#39;Clarity&#39;,
+    },
+         {&#39;id&#39;:&#39;out3&#39;,
+    &#39;name&#39;:&#39;Viscosity&#39;
+    }
+    ]
+
+modal = {}
+for i in range(len(process_values)):
+        modal[&#39;items_modal&#39;+str(i+1)] = [
+        {
+        &#39;id&#39;:process_values[i][&#39;var_id&#39;][j],  
+        &#39;label&#39;:process_values[i][&#39;var&#39;][j], 
+        &#39;placeholder&#39;:&#39;input value&#39;,
+        &#39;type&#39;:&#39;number&#39;,
+        &#39;kind&#39;:&#39;input_text&#39;,
+        &#39;debounce&#39;:True,
+        &#39;value&#39;:process_values[i][&#39;initial&#39;][j],
+        } for j in range(len(process_values[i][&#39;var&#39;]))]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="views.process" href="index.html">views.process</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>

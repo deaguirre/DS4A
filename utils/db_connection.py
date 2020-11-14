@@ -3,6 +3,9 @@ import pandas as pd
 
 
 def select_table():
+    """
+    Make a query to the database and return the result in a dataframe.
+    """
     try:
         connDB = dbconn()
         if(connDB):
@@ -17,6 +20,9 @@ def select_table():
 
 
 def dbconn():
+    """
+    Make the connection with the database.
+    """
     host = 'ds4aprogel101.c7s9fkqnzrfg.us-east-2.rds.amazonaws.com'
     port = 5432
     user = 'progel_dev_user'
