@@ -4,6 +4,7 @@ from app import app
 from knowledge_module.model import CustomModel
 from components.select.select_component import new_select
 from utils.db_connection import select_table
+from utils.var_to_eng_dict import var_to_eng
 from utils.explore_plot_funcs import scatter_plot_x_y, histogram_plot_x, line_plot_x, corr_matrix_func
 import plotly.express as px
 import dash
@@ -49,7 +50,7 @@ def select_df(url):
     
     #If the connection with the database was success, display plotsContainer...
     if(not isinstance(df, bool) and len(df)>0):
-        options = [{'label': i, 'value': i} for i in df.columns]
+        options = [{'label': var_to_eng[i], 'value': i} for i in df.columns]
         value = options[1]['value']
         return options, value, {'display': 'block'}, {'display': 'none'}
     else:

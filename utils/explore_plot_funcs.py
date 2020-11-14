@@ -97,31 +97,31 @@ def line_plot_x(var_x):
                   line_shape = 'linear'# color of histogram bars
                  )
     #calculate mean, standard deviations
-	m = np.mean(var_x)
-	mv = pd.Series([m]*len(var_x))
-	ucl = m + 2*np.std(var_x)
-	ucl_v = pd.Series([ucl]*len(var_x))
-	lcl = m - 2*np.std(var_x)
-	lcl_v = pd.Series([lcl]*len(var_x))
-	ndf = pd.concat([var_x, mv, ucl_v, lcl_v], axis=1).reset_index()
-	ndf.rename(columns = {0: 'Mean', 1: '+2σ', 2: '-2σ'}, inplace = True)
-	ndfl = pd.melt(ndf, id_vars=['index'], value_vars = [var_x.name, 'Mean', '+2σ', '-2σ'])
-	
-	#create plot
-	fig = px.line(ndfl, x='index', y='value', color = 'variable', line_dash = 'variable', 
-		color_discrete_sequence = ['crimson', 'black', 'blue', 'blue'], 
-		line_dash_sequence = ['solid', 'dashdot', 'dashdot','dashdot']
-		)
-	
-	#add Title
-	t = "Evolution of " + var_x.name
-	
-	fig.update_layout(title={'text': t ,
-		'font_size': 20,
-		'y':0.95,'x':0.5,
-		'xanchor': 'center','yanchor': 'top'})
-		
-	return fig
+    m = np.mean(var_x)
+    mv = pd.Series([m]*len(var_x))
+    ucl = m + 2*np.std(var_x)
+    ucl_v = pd.Series([ucl]*len(var_x))
+    lcl = m - 2*np.std(var_x)
+    lcl_v = pd.Series([lcl]*len(var_x))
+    ndf = pd.concat([var_x, mv, ucl_v, lcl_v], axis=1).reset_index()
+    ndf.rename(columns = {0: 'Mean', 1: '+2σ', 2: '-2σ'}, inplace = True)
+    ndfl = pd.melt(ndf, id_vars=['index'], value_vars = [var_x.name, 'Mean', '+2σ', '-2σ'])
+
+    #create plot
+    fig = px.line(ndfl, x='index', y='value', color = 'variable', line_dash = 'variable', 
+        color_discrete_sequence = ['crimson', 'black', 'blue', 'blue'], 
+        line_dash_sequence = ['solid', 'dashdot', 'dashdot','dashdot']
+        )
+
+    #add Title
+    t = "Evolution of " + var_x.name
+
+    fig.update_layout(title={'text': t ,
+        'font_size': 20,
+        'y':0.95,'x':0.5,
+        'xanchor': 'center','yanchor': 'top'})
+        
+    return fig
     
     
     
