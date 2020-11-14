@@ -11,6 +11,9 @@ from views.desired_output import desired_output_component as desired_output
               ]
 )
 def display_page(pathname):
+    """
+    This method serves as the routing component fot the app.
+    """
     if(pathname == '/home'):
         return home.layout
     elif(pathname == '/process'):
