@@ -8,7 +8,8 @@ import plotly.express as px
 import dash
 import pandas as pd
 from knowledge_module.expected_vals import deleteCols, find_neighbours_list, min_mean_max_params_list, min_mean_max_params_list_KNN
-from knowledge_module.expected_vals import selectedInstances, target_prediction, target_prediction_2 
+from knowledge_module.expected_vals import selectedInstances, target_prediction, target_prediction_2
+from utils.var_to_eng_dict import var_to_eng 
 
 #query df from db
 df = select_table()
@@ -43,17 +44,19 @@ def fill_table(n_clicks, desired_bloom, desired_viscosidad, desired_claridad):
 	dataframeT2 = dataframeT2.round(2)
 	dataframeT2 = dataframeT2.reset_index()
 	dataframeT2.columns = ['Variable', 'Min', 'Mean', 'Max']
+	dataframeT2['Variable'] = dataframeT2['Variable'].apply(lambda x: var_to_eng[x])
+	dataframeT2['Variable'] = dataframeT2['Variable'].apply(lambda x: x.replace("_", " "))
+	
 		
 	#calculate predictions tables
 	df_predictions = target_prediction_2(dataframe2)
 	df_predictions = df_predictions.round(2)
 	df_predictions = df_predictions.reset_index()
-	df_predictions.columns = ['Variable', 'Min_Params', 'Mean_Params', 'Max_Params']
+	df_predictions.columns = ['Variable', 'Min', 'Mean', 'Max']
 			
 	#draw tables
 	columns = [{'name':i, 'id':i} for i in dataframeT2.columns]
 	data = dataframeT2.to_dict('records')
-	
 	columns_pred = [{'name':i, 'id':i} for i in df_predictions.columns]
 	data_pred = df_predictions.to_dict('records')
 	
