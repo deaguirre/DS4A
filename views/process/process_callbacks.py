@@ -31,8 +31,8 @@ for i in range(len(process_values)):
 
 @app.callback(
     Output('net', 'selection'),
-    [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
-    #[Input('updateModal_'+str(m),'n_clicks_timestamp') for m in modal]
+    # [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
+    [Input('updateModal_'+str(m),'n_clicks_timestamp') for m in modal]
 
 )
 def reset_net(*args):
@@ -41,8 +41,8 @@ print(modal)
 @app.callback(
     [Output(str(m),'is_open') for m in modal],
     [Input('net', 'selection')]+
-    [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
-    #[Input('updateModal_'+str(m),'n_clicks_timestamp') for m in modal],  
+    # [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
+    [Input('updateModal_'+str(m),'n_clicks_timestamp') for m in modal],  
     [State(str(m),'is_open') for m in modal]+
     [State(m,'value') for m in inputs],
 
