@@ -46,7 +46,20 @@ headerComponent = html.Div(
                     dbc.Nav(className='custom-navBar',
                         children = [
                         dbc.NavItem(dbc.NavLink('General', href='/home', className='custom-nav--text')),
+<<<<<<< HEAD
                         dbc.NavItem(dbc.NavLink('Process1', href='/process1', className='custom-nav--text')),
+=======
+
+                        dbc.DropdownMenu(
+                            [
+                                dbc.DropdownMenuItem('Multiresponse',   href='/process',   className='custom-dropDownItem--text'),
+                                dbc.DropdownMenuItem('Bloom',   href='/process_bloom',       className='custom-dropDownItem--text', id='Bloom_PANEL'),
+                                dbc.DropdownMenuItem('Viscosity',   href='/process_viscosity',   className='custom-dropDownItem--text', id='Viscosity_PANEL'),
+                                dbc.DropdownMenuItem('Clarity', href='/process_clarity', className='custom-dropDownItem--text', id='Clarity_PANEL'),
+                                dbc.DropdownMenuItem('Yield', href='/process_yield',       className='custom-dropDownItem--text', id='Yield_PANEL')
+                            ], label = 'Process', nav=True,  className='custom-dropDown--text'
+                        ),
+>>>>>>> modelProposal
                         dbc.NavItem(dbc.NavLink('Trends', href='/trends', className='custom-nav--text')),
                         dbc.NavItem(dbc.NavLink('Desired Output', href='/desiredOutput', className='custom-nav--text'))
                         ],

@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generado por Microsoft Visio, SVG Export 01_lavado.svg Lavado -->
+<!-- Generado por Microsoft Visio, SVG Export 01_lavado.svg Página-1 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
-		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="2.67708in" height="3.58778in"
-		viewBox="0 0 192.75 258.32" xml:space="preserve" color-interpolation-filters="sRGB" class="st3">
-	<v:documentProperties v:langID="9226" v:metric="true" v:viewMarkup="false">
-		<v:userDefs>
-			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
-		</v:userDefs>
-	</v:documentProperties>
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="2.26389in" height="3.13118in"
+		viewBox="0 0 163 225.445" xml:space="preserve" color-interpolation-filters="sRGB" class="st3">
+	<v:documentProperties v:langID="9226" v:metric="true" v:viewMarkup="false"/>
 
 	<style type="text/css">
 	<![CDATA[
 		.st1 {fill:#ffffff}
-		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:7}
 		.st3 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -22,11 +18,11 @@
 		<v:userDefs>
 			<v:ud v:nameU="PEHideTags"/>
 		</v:userDefs>
-		<title>Lavado</title>
+		<title>Página-1</title>
 		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
 				v:shadowOffsetY="-8.50394"/>
 		<v:layer v:name="Equipo" v:index="0"/>
-		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(24.375,-58.3522)">
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(9.5,-40.3522)">
 			<title>Tanque cubierto.48</title>
 			<v:custProps>
 				<v:cp v:nameU="SubType" v:lbl="Tipo de techo de tanque cubierto" v:type="1"
@@ -52,10 +48,10 @@
 				<v:ud v:nameU="PELayout" v:val="VT0(31):26"/>
 				<v:ud v:nameU="CPMSetList" v:prompt="Description,Material,Manufacturer,Model" v:val="VT4(Equipo)"/>
 			</v:userDefs>
-			<path d="M0 258.32 L108 258.32 L120 258.32 L144 258.32 L144 86.28 L0 86.28 L0 258.32 Z" class="st1"/>
-			<path d="M0 258.32 L108 258.32 L120 258.32 L144 258.32 L144 86.28" class="st2"/>
-			<path d="M0 86.28 L0 258.32" class="st2"/>
-			<path d="M-6 95.84 L-6 76.73 L150 76.73 L150 95.84" class="st2"/>
+			<path d="M0 225.45 L108 225.45 L120 225.45 L144 225.45 L144 53.41 L0 53.41 L0 225.45 Z" class="st1"/>
+			<path d="M0 225.45 L108 225.45 L120 225.45 L144 225.45 L144 53.41" class="st2"/>
+			<path d="M0 53.41 L0 225.45" class="st2"/>
+			<path d="M-6 62.97 L-6 43.85 L150 43.85 L150 62.97" class="st2"/>
 		</g>
 	</g>
 </svg>
