@@ -21,13 +21,13 @@ headerComponent = html.Div(
                                 
                             ),
                             dbc.Col(
-                                html.Img(src=logoProgel, width=200, height=100),
+                                html.A([ html.Img(src=logoProgel, width=200, height=80.64) ] , href = 'https://www.gelcointernational.com/en/home', target = "_blank"),
                                 width=2,
                                 #style={'backgroundColor':'yellow'}
                                 
                             ),
                             dbc.Col(
-                                html.Img(src=logoDS4, width=100.5, height=100),
+                                html.A([ html.Img(src=logoDS4, width=100.5, height=100) ] , href = "https://www.correlation-one.com/", target = "_blank"),
                                 width=2,
                                 #style={'backgroundColor':'blue'}
                                 
