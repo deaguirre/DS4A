@@ -7,7 +7,7 @@ class CustomModel(DataModel):
 
     def showData(self):
         """
-        Show the data for this model
+        Show the data for this model.
         """
         print('Prediction')
         print('Input variables:\n')

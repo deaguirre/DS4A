@@ -18,12 +18,15 @@ from sklearn.neighbors import KNeighborsRegressor
 
 def deleteCols(dataframe, namelist):
     """
-    Returns a dataframe with the namelist cols deleted
+    Returns a dataframe with the namelist cols deleted.
+
     Args:
-        - dataframe: is a DataFrame
-        - namelist: list of columns names list to be deleted
+
+        dataframe: is a DataFrame
+        namelist: list of columns names list to be deleted
     Return:
-        - the dataframe without the deleted cols
+
+        the dataframe without the deleted cols
     """
     for name in namelist:
         if name in dataframe:
