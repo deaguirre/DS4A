@@ -1,7 +1,7 @@
 from dash.dependencies import Input, Output
 from app import app
 from views.home import home_component as home
-from views.process import process_component as process
+from views.process1 import process1_component as process1
 from views.trends import trends_component as trends
 from views.desired_output import desired_output_component as desired_output
 
@@ -16,8 +16,8 @@ def display_page(pathname):
     """
     if(pathname == '/home'):
         return home.layout
-    elif(pathname == '/process'):
-        return process.layout
+    elif(pathname == '/process1'):
+        return process1.layout
     elif(pathname == '/trends'):
         return trends.layout
     elif(pathname == '/desiredOutput'):

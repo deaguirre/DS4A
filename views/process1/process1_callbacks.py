@@ -7,7 +7,7 @@ from knowledge_module.expected_vals import target_prediction
 from knowledge_module.model import CustomModel
 from utils.text_processing import validate_pattern
 from utils.action_buttons import get_button_pressed
-from views.process.const import process_values, modal
+from views.process1.const import process_values, modal
 from views.trends.trends_callbacks import order_columns
 from dash.dependencies import Input, Output, State
 from dash import callback_context

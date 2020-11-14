@@ -46,7 +46,7 @@ headerComponent = html.Div(
                     dbc.Nav(className='custom-navBar',
                         children = [
                         dbc.NavItem(dbc.NavLink('General', href='/home', className='custom-nav--text')),
-                        dbc.NavItem(dbc.NavLink('Process', href='/process', className='custom-nav--text')),
+                        dbc.NavItem(dbc.NavLink('Process1', href='/process1', className='custom-nav--text')),
                         dbc.NavItem(dbc.NavLink('Trends', href='/trends', className='custom-nav--text')),
                         dbc.NavItem(dbc.NavLink('Desired Output', href='/desiredOutput', className='custom-nav--text'))
                         ],

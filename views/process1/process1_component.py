@@ -1,9 +1,9 @@
 import dash_bootstrap_components as dbc 
 import dash_html_components as html
-import views.process.process_callbacks
+import views.process1.process1_callbacks
 from components.modal.modal_component import new_modal
 from components.network.network_component import new_network
-from views.process.const import process_values, output_values,nodes,modal
+from views.process1.const import process_values, output_values,nodes,modal
 from components.input.input_component import new_inputs
 
 def make_output(var):
