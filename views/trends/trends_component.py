@@ -38,7 +38,7 @@ layout = html.Div(
                                 ]
                             ),
                                 dcc.Graph(id='scatterPlot'),
-                                #dcc.Graph(id='corrPlot')
+                                
                             ]
                         ),
                         html.Div(id='displayAlert',

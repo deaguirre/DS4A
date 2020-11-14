@@ -3,26 +3,25 @@ import plotly.express as px
 import numpy as np
 
 
-def scatter_plot_x_y(var_x, var_y): #, var_id_1="extract_no", var_id_2="year"):
-    '''
+def scatter_plot_x_y(var_x, var_y): 
+    """
     Function to draw a scatter plot of two variables x, y.
+
+    Args:
+
+        var_x: values of the x-axis
+        var_ys: values of the y-axis   
     
-    To discuss later:
-    the function allows to add two Id variables
-    var_id_1: Here we expect the Extraction Number
-    var_id_2: Here we expect the year of the extraction
-    The two Id variables are expected so they show up as tooltip
-    
-    '''
-    #build plot
+    Return:
+
+        Figure plot
+    """
     fig = go.Figure()
     fig.add_trace(go.Scatter(x = var_x, y = var_y,
                             mode = 'markers',
                             opacity = 0.8,
-                            #marker_color='rgba(152, 0, 0, .8)',
                             marker_color= "crimson"#, 
-                            #text = ("Extraction-Year: " + var_id_1.astype(str) + "-" + var_id_2.astype(str)),
-
+                            
                             )
                 )
 
@@ -32,15 +31,10 @@ def scatter_plot_x_y(var_x, var_y): #, var_id_1="extract_no", var_id_2="year"):
         xaxis_title=var_x.name,
         yaxis_title=var_y.name,
         legend_title="Legend Title",
-    #    font=dict(
-    #        family="Courier New, monospace", #change based on progel font, or overall font
-    #        size=18,
-    #        color="RebeccaPurple"
-    #    )
+    
     )
     
     #add Title
-    #t = var_x + "by" + var_y
     fig.update_layout(
     title={
         'text': "Scatter plot for " + var_x.name + " vs. " + var_y.name ,
@@ -51,17 +45,20 @@ def scatter_plot_x_y(var_x, var_y): #, var_id_1="extract_no", var_id_2="year"):
         'yanchor': 'top'})
     
     return fig
-    #fig.show()
+    
 	
 	
 	
 def histogram_plot_x(var_x):
-    '''
-    Function to draw a histogram plot of variablex
-    '''
+    """
+    Function to draw a histogram plot of variable x.
+
+    Args:
+
+        var_x (string): values of the x-axis
+    """
     #build plot   
     fig = px.histogram(var_x,
-                       #title =t,#'Histogram of bills',
                        labels = var_x, # can specify one label per df column
                        opacity = 0.8,
                        color_discrete_sequence=['crimson'], # color of histogram bars
@@ -81,18 +78,22 @@ def histogram_plot_x(var_x):
         'yanchor': 'top'})
     
     return fig
-    #fig.show()
+    
 	
 	
 
 def line_plot_x(var_x):
-    '''
+    """
     Function to draw a line plot of variable_x.           
-    '''
+
+    Args:
+
+        var_x (string): values of the x-axis
+    """
     #create plot
     fig = px.line(var_x,
                   color_discrete_sequence = ['crimson'],
-                  line_shape = 'linear'#, # color of histogram bars
+                  line_shape = 'linear'# color of histogram bars
                  )
     
     #add Title
@@ -161,13 +162,16 @@ def line_plot_x(var_x):
     ])
     
     return fig
-    #fig.show()	
+    
     
 def corr_matrix_func(input_df):
-    
-    '''
-    Plots a correlation matrix of a pandas dataframe
-    '''
+    """
+    Plots a correlation matrix of a pandas dataframe.
+
+    Args:
+
+        input_df (DataFrame)
+    """
     #create plot
     fig = px.scatter_matrix(input_df,
                             color_discrete_sequence = ['crimson'],
@@ -179,10 +183,8 @@ def corr_matrix_func(input_df):
     fig.update_layout(
         title='Correlation Matrix',
         dragmode='select',
-        #width=900,
-        #height=900,
         hovermode='closest',
     )
 
-    #fig.show()	
+    
     return fig

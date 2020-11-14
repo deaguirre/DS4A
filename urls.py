@@ -11,6 +11,9 @@ from views.real_time import real_time_component as real_time
               ]
 )
 def display_page(pathname):
+    """
+    This method serves as the routing component fot the app.
+    """
     if(pathname == '/home'):
         return home.layout
     elif(pathname == '/process'):

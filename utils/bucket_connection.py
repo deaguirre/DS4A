@@ -11,7 +11,7 @@ def bucketconn():
                                  aws_access_key_id=aws_access_key_id,
                                  aws_secret_access_key=aws_secret_access_key)
         return client
-    except
+    except:
         print("'We cannot connect with the database'")
         return False
 

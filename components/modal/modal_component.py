@@ -10,17 +10,16 @@ def new_modal(header, items, func, id):
 
         header (string): Title of the modal
         items (string): json of input texts
-        func (string): id of the callback to activate}
+        func (string): id of the callback to activate
         id(string): modal ID
 
-    Returns:
+    Return:
 
         modal
     """
     modal = dbc.Modal(
                 [
                     dbc.ModalHeader(header),
-                    #           [html.Div(dbc.Input), html.Div(dbc.Input)]
                     dbc.ModalBody(children = items),
                     dbc.ModalFooter(
                         dbc.ButtonGroup(
@@ -30,17 +29,7 @@ def new_modal(header, items, func, id):
                                 color="primary", className="mr-1", 
                                 n_clicks_timestamp='0'
                                     ),
-                                #dbc.Button('Update', 
-                                #id='updateModal_{}'.format(id), 
-                                #color="secondary", className="mr-1",
-                                #style={
-                                #    'borderTopRightradius': 0,
-                                #    'borderBottomRightradius': 0
-                                #    },
-                                #n_clicks_timestamp='0'
-                                #    ),
-                                
-                            ]
+                                ]
                         )
                             
                         

@@ -17,19 +17,19 @@ headerComponent = html.Div(
                                 html.H1('Gelatin Manufacturing Process'),
                                 width=8,
                                 align="center",
-                                #style={'backgroundColor':'black'}
+                                
                                 
                             ),
                             dbc.Col(
                                 html.Img(src=logoProgel, width=200, height=100),
                                 width=2,
-                                #style={'backgroundColor':'yellow'}
+                                
                                 
                             ),
                             dbc.Col(
                                 html.Img(src=logoDS4, width=100.5, height=100),
                                 width=2,
-                                #style={'backgroundColor':'blue'}
+                                
                                 
                             ),
                         ]
