@@ -18,7 +18,7 @@ layout = html.Div(
                             children = new_select('independentSelection', [])),                                    
                             html.Div(className='select-container select-inline',
                                     children=new_select('dependentSelection', [{'label': 'Bloom', 'value': 'bloom'}, 
-                                    {'label': 'Viscocidad', 'value': 'viscosidad'},
+                                    {'label': 'Viscosidad', 'value': 'viscosidad'},
                                     {'label': 'Claridad', 'value': 'claridad'}],
                                     default='bloom'))
 
