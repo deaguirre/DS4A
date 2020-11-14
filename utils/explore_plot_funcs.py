@@ -1,6 +1,7 @@
 import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
+import pandas as pd
 
 
 def scatter_plot_x_y(var_x, var_y): #, var_id_1="extract_no", var_id_2="year"):
@@ -86,82 +87,39 @@ def histogram_plot_x(var_x):
 	
 
 def line_plot_x(var_x):
-    '''
-    Function to draw a line plot of variable_x.           
-    '''
-    #create plot
-    fig = px.line(var_x,
-                  color_discrete_sequence = ['crimson'],
-                  line_shape = 'linear'#, # color of histogram bars
-                 )
     
-    #add Title
-    t = "Evolution of " + var_x.name + "(-- Mean, and +/-2 Std. Dev. -- )"
-    fig.update_layout(
-    title={
-        'text': t ,
-        'font_size': 20,
-        'y':0.95,
-        'x':0.5,
-        'xanchor': 'center',
-        'yanchor': 'top'})
-		
-	#add reference lines	
-	#calc mean, ucl and lcl
-    m = np.mean(var_x)
-    ucl = m + 2*np.std(var_x)
-    lcl = m - 2*np.std(var_x)
+	'''
+	Plot line chart of a single variable
+	It plots also the mean and +/-2 SD
+	'''
 	
-	#add reference lines (Mean, UCL, LCL)
-    fig.update_layout(shapes=[
-        dict(
-            type="line",
-            yref='y1',
-            y0=m,
-            y1=m,
-            xref='x1',
-            x0=0,
-            x1=len(var_x),
-            line=dict(
-                color="Black",
-                width=1,
-                dash="dashdot",
-            )
-        ),
-        
-        dict(
-            type="line",
-            yref='y1',
-            y0=ucl,
-            y1=ucl,
-            xref='x1',
-            x0=0,
-            x1=len(var_x),
-            line=dict(
-                color="Blue",
-                width=1,
-                dash="dashdot",
-            )
-        ),
-        
-        dict(
-            type="line",
-            yref='y1',
-            y0=lcl,
-            y1=lcl,
-            xref='x1',
-            x0=0,
-            x1=len(var_x),
-            line=dict(
-                color="Blue",
-                width=1,
-                dash="dashdot",
-            )
-        )    
-    ])
+	#calculate mean, standard deviations
+	m = np.mean(var_x)
+	mv = pd.Series([m]*len(var_x))
+	ucl = m + 2*np.std(var_x)
+	ucl_v = pd.Series([ucl]*len(var_x))
+	lcl = m - 2*np.std(var_x)
+	lcl_v = pd.Series([lcl]*len(var_x))
+	ndf = pd.concat([var_x, mv, ucl_v, lcl_v], axis=1).reset_index()
+	ndf.rename(columns = {0: 'Mean', 1: '+2σ', 2: '-2σ'}, inplace = True)
+	ndfl = pd.melt(ndf, id_vars=['index'], value_vars = [var_x.name, 'Mean', '+2σ', '-2σ'])
+	
+	#create plot
+	fig = px.line(ndfl, x='index', y='value', color = 'variable', line_dash = 'variable', 
+		color_discrete_sequence = ['crimson', 'black', 'blue', 'blue'], 
+		line_dash_sequence = ['solid', 'dashdot', 'dashdot','dashdot']
+		)
+	
+	#add Title
+	t = "Evolution of " + var_x.name
+	
+	fig.update_layout(title={'text': t ,
+		'font_size': 20,
+		'y':0.95,'x':0.5,
+		'xanchor': 'center','yanchor': 'top'})
+		
+	return fig
     
-    return fig
-    #fig.show()	
     
 def corr_matrix_func(input_df):
     
