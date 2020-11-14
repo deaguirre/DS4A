@@ -6,14 +6,23 @@ from components.network.network_component import new_network
 from views.process.const import process_values, output_values,nodes,modal
 from components.input.input_component import new_inputs
 
-def make_output(i):
+def make_output(var):
+    """
+    Dynamically creates HTML components for the output variables of the process.
+
+    Args:
+        var: A dictionary with the name of the variable and the ID for the
+         component that interacts with the callbacks.
+
+    Returns:
+        An HTML component, with a defined structure for the process output variables"""
     return dbc.Row(
         [
             dbc.Col(
-            html.P(f"{i['name']}")
+            html.P(f"{var['name']}")
             ),
             dbc.Col(
-            html.Div(id=f"{i['id']}")
+            html.Div(id=f"{var['id']}")
             )
             ]
         )
