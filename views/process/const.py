@@ -28,7 +28,8 @@ nodes = {
                 'id':5,
                 'label': 'Extraction',
                 'image':'./assets/icons/03_extraccion.svg','shape':'image', 
-                'x':800, 'y':200, 'size':50
+                'x':800, 'y':200, 'size':50, 
+                'font':{'color':'black', 'background':'white'} 
             },
             {
                 'id':6,
@@ -44,7 +45,7 @@ nodes = {
             },
             {
                 'id':8,
-                'label': 'Ionic \n Exchange', 
+                'label': 'Ionic \n exchange', 
                 'image':'./assets/icons/06_intercambio.svg','shape':'image',
                 'x':400, 'y':400, 'size':30
             },
@@ -64,11 +65,12 @@ nodes = {
                 'id':11,
                 'label': 'Flash \n Evaporation', 
                 'image':'./assets/icons/01_lavado.svg','shape':'image',
-                'x':1000, 'y':400, 'size':40
+                'x':1000, 'y':400, 'size':40, 
+                'font':{'color':'black', 'background':'white'}
             },
             {
                 'id':12,
-                'label': 'Sterilization', 
+                'label': 'Esterilization', 
                 'image':'./assets/icons/08_esterilizador.svg','shape':'image',
                 'x':0, 'y':600, 'size':40
             },
@@ -123,7 +125,15 @@ nodes = {
             {
                 'id':'conector_2b', 'shape':'text', 'color':'#ffffff',
                 'x': 0, 'y':500
-            }
+            },
+            {
+                'id':'conector_esteril_a', 'shape':'text', 'color':'#ffffff',
+                'x': 100, 'y':550
+            },
+            {
+                'id':'conector_esteril_b', 'shape':'text', 'color':'#ffffff',
+                'x': 100, 'y':650
+            },
         ],
         'edges':[
             {'id': '1-2', 'from':1, 'to':2, 'arrows':'to'},
@@ -132,27 +142,34 @@ nodes = {
             {'id': '3-4', 'from':3, 'to':4, 'arrows':'to'},
             {'id': '4-5', 'from':4, 'to':5, 'arrows':'to'},
             
+            # Connectors raw extract
             {'id': '5-6a', 'from':5, 'to':'conn_1a', 'color':'#0341fc'},
             {'id': '5-6b', 'from':'conn_1a', 'to':'conn_1b', 
-                'color':'#0341fc', 'label':'Raw \n Extract'},
-            {'id': '5-6c', 'from':'conn_1b', 'to':6, 'arrows':'to', 'color':'#0341fc'},
+                'color':{'color':'#0341fc'}, 'label':'Raw Extract', 'font':{'background':'#ffffff'}},
+            {'id': '5-6c', 'from':'conn_1b', 'to':6, 'arrows':'to', 'color':{'color':'#0341fc'}},
 
+            # Connectors light liquour
             {'id': '6-7', 'from':6, 'to':7, 'arrows':'to'},
             {'id': '7-8', 'from':7, 'to':8, 'arrows':'to'},
             {'id': '8-9', 'from':8, 'to':9, 'arrows':'to',
-            'label':'Light \n liquour'},
+            'label':'Light \n liquour', 'font':{'background':'#ffffff'}},
             {'id': '9-10', 'from':9, 'to':10, 'arrows':'to'},
             
             {'id': '10-11', 'from':10, 'to':11, 'arrows':'to'},
 
-            {'id': '11-12a', 'from':11, 'to':'conector_2a', 'color':'#0341fc'},
-            {'id': '11-12b', 'from':'conector_2a', 'to':'conector_2b', 'color':'#0341fc',
-            'label':'Heavy \n liquour'},
-            {'id': '11-12c', 'from':'conector_2b', 'to':12, 'arrows':'to', 'color':'#0341fc'},
+            # Connectors heavy liquour
+            {'id': '11-12a', 'from':11, 'to':'conector_2a', 'color':{'color':'#0341fc'}},
+            {'id': '11-12b', 'from':'conector_2a', 'to':'conector_2b', 'color':{'color':'#0341fc'},
+            'label':'Heavy liquour', 'font':{'background':'#ffffff'}},
+            {'id': '11-12c', 'from':'conector_2b', 'to':12, 'arrows':'to', 'color':{'color':'#0341fc'}},
             
-            {'id': '12-13', 'from':12, 'to':13},
-            {'id': '12-14', 'from':12, 'to':14},
+            # Connectors refrigeration
+            {'id': '12-13a', 'from':12, 'to':'conector_esteril_a'},
+            {'id': '12-13b', 'from':'conector_esteril_a', 'to':13, 'color':{'color':'#0341fc'}},
+            {'id': '12-14a', 'from':12, 'to':'conector_esteril_b'},
+            {'id': '12-14b', 'from':'conector_esteril_b', 'to':14, 'color':{'color':'#0341fc'}},
             
+            # Conectors to drying
             {'id': '13-15', 'from':13, 'to':15, 'arrows':'to'},
             {'id': '14-15', 'from':14, 'to':15, 'arrows':'to'},
 

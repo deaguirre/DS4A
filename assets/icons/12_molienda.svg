@@ -13,7 +13,7 @@
 	<style type="text/css">
 	<![CDATA[
 		.st1 {fill:#ffffff}
-		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:7}
 		.st3 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -26,7 +26,7 @@
 		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
 				v:shadowOffsetY="-8.50394"/>
 		<v:layer v:name="Equipo" v:index="0"/>
-		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(37,-47.425)">
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(14.1732,-6.953)">
 			<title>Clarificadora.129</title>
 			<v:custProps>
 				<v:cp v:nameU="Description" v:lbl="Descripción" v:type="0" v:sortKey="0" v:langID="3082"/>
@@ -47,8 +47,8 @@
 				<v:ud v:nameU="PELayout" v:val="VT0(31):26"/>
 				<v:ud v:nameU="CPMSetList" v:prompt="Description,Material,Manufacturer,Model" v:val="VT4(Equipo)"/>
 			</v:userDefs>
-			<path d="M0 121.3 L37 139.8 L74 121.3 L74 65.8 L0 65.8 L0 121.3 Z" class="st1"/>
-			<path d="M0 121.3 L37 139.8 L74 121.3 L74 65.8M0 65.8 L0 121.3" class="st2"/>
+			<path d="M0 109.65 L60.3 139.8 L120.61 109.65 L120.61 19.19 L0 19.19 L0 109.65 Z" class="st1"/>
+			<path d="M0 109.65 L60.3 139.8 L120.61 109.65 L120.61 19.19M0 19.19 L0 109.65" class="st2"/>
 		</g>
 	</g>
 </svg>

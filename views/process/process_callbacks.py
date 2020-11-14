@@ -37,7 +37,7 @@ for i in range(len(process_values)):
 )
 def reset_net(*args):
     return {'nodes': [], 'edges': []}
-
+print(modal)
 @app.callback(
     [Output(str(m),'is_open') for m in modal],
     [Input('net', 'selection')]+

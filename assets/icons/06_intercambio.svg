@@ -12,7 +12,7 @@
 
 	<style type="text/css">
 	<![CDATA[
-		.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:8.5}
 		.st2 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -25,7 +25,7 @@
 		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
 				v:shadowOffsetY="-8.50394"/>
 		<v:layer v:name="Equipo" v:index="0"/>
-		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(35.2602,-42.5197)">
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(18,-9.6378)">
 			<title>Columna.123</title>
 			<v:custProps>
 				<v:cp v:nameU="SubType" v:lbl="Mostrar costura" v:type="3" v:langID="3082" v:val="VT0(0):26"/>
@@ -48,8 +48,8 @@
 				<v:ud v:nameU="PELayout" v:val="VT0(31):26"/>
 				<v:ud v:nameU="CPMSetList" v:prompt="Description,Material,Manufacturer,Model" v:val="VT4(Equipo)"/>
 			</v:userDefs>
-			<path d="M-0 278.57 A57.6233 34.5257 -180 0 0 113.39 278.57 L113.39 108.49 A57.6233 34.5257 -180 0 0 0 108.49 L0 278.57
-						 Z" class="st1"/>
+			<path d="M0 270.92 A73.1816 43.8476 -180 0 0 144 270.92 L144 54.92 A73.1816 43.8476 -180 0 0 0 54.92 L0 270.92 Z"
+					class="st1"/>
 		</g>
 	</g>
 </svg>
