@@ -1,15 +1,15 @@
-from dash.dependencies import Input, Output, State
-from app import app
-#from knowledge_module.model import CustomModel
-from components.select.select_component import new_select
-from utils.db_connection import select_table
-#from utils.explore_plot_funcs import scatter_plot_x_y, histogram_plot_x, line_plot_x, corr_matrix_func
 import plotly.express as px
 import dash
 import pandas as pd
-from knowledge_module.expected_vals import deleteCols, find_neighbours_list, min_mean_max_params_list, min_mean_max_params_list_KNN
-from knowledge_module.expected_vals import selectedInstances, target_prediction, target_prediction_2
+
+from app import app
+from utils.db_connection import select_table
 from utils.var_to_eng_dict import var_to_eng 
+from dash.dependencies import Input, Output, State
+from components.select.select_component import new_select
+from knowledge_module.expected_vals import selectedInstances, target_prediction, target_prediction_2
+from knowledge_module.expected_vals import deleteCols, find_neighbours_list, min_mean_max_params_list, min_mean_max_params_list_KNN
+
 
 #query df from db
 df = select_table()
@@ -36,6 +36,21 @@ df = select_table()
 )
 
 def fill_table(n_clicks, desired_bloom, desired_viscosidad, desired_claridad):
+	"""
+    A callback function that calculates and returns two tables with the output values 
+	of a previously trained model of K nearest neighbors.
+
+    Args:
+        n_clicks: The interaction with the knn_trigger_ button (n_clicks)
+        desired_bloom: The interaction with the desired_bloom input component (value).
+		desired_claridad: The interaction with the desired_claridad input component (value).
+		desired_claridad: The interaction with the desired_claridad input component (value).
+
+    Returns:
+        Two tables with the output values of a KNN model, with the following structure:
+		Columns table 1, Data table 1, Columns table 2, Data table 2. 
+    """
+
 	#here we input the knn_fucntion. It returns a dataframe
 	targetVariables = ["bloom", "viscosidad", "claridad"]
 	Values = [desired_bloom, desired_viscosidad, desired_claridad]                                                         

@@ -4,7 +4,16 @@ import pandas as pd
 
 def select_table():
     """
-    Make a query to the database and return the result in a dataframe.
+    Loads a table from a defined database.
+
+    Args:
+        No arguments.
+
+    Returns:
+        A pandas DataFrame with the database table loaded.
+    
+    Raises:
+        Error loading database table: An error ocurred accessing the database table. 
     """
     try:
         connDB = dbconn()
@@ -21,7 +30,16 @@ def select_table():
 
 def dbconn():
     """
-    Make the connection with the database.
+    Creates the engine object for the connection to the database.
+
+    Args:
+        No arguments.
+
+    Returns:
+        A SQLAlchemy engine instance with the connection parameters of the database.
+
+    Raises:
+        We cannot connect with the database: An error occurred creating the connection with the database.
     """
     host = 'ds4aprogel101.c7s9fkqnzrfg.us-east-2.rds.amazonaws.com'
     port = 5432

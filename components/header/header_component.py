@@ -48,7 +48,7 @@ headerComponent = html.Div(
                         dbc.NavItem(dbc.NavLink('General', href='/home', className='custom-nav--text')),
                         dbc.NavItem(dbc.NavLink('Process', href='/process', className='custom-nav--text')),
                         dbc.NavItem(dbc.NavLink('Trends', href='/trends', className='custom-nav--text')),
-                        dbc.NavItem(dbc.NavLink('Desired Output', href='/realTime', className='custom-nav--text'))
+                        dbc.NavItem(dbc.NavLink('Desired Output', href='/desiredOutput', className='custom-nav--text'))
                         ],
                         pills=True,
                         style = {'backgroundColor': '#8E9ECB', 'paddingLeft':'3%'}

@@ -1,13 +1,9 @@
-import dash_core_components as dcc
-import dash_bootstrap_components as dbc
-import dash_html_components as html
-import views.real_time.real_time_callbacks
-#from views.trends.const import year_options
-#from components.select.select_component import new_select
-import pandas as pd
 import dash_table
-
-
+import pandas as pd
+import dash_core_components as dcc
+import dash_html_components as html
+import dash_bootstrap_components as dbc
+import views.desired_output.desired_output_callbacks
 
 layout = html.Div(
 			
@@ -18,7 +14,6 @@ layout = html.Div(
 				width={"size": 8}
 				), justify = "center"
 			),
-			#html.Br(),
 			html.Br(),
 		dbc.Row(
             [ 
@@ -69,15 +64,6 @@ layout = html.Div(
 						
             ], align = "center"
         ),
-		
-		#dbc.Row(
-		#	[
-		#		dbc.Col(
-		#		dash_table.DataTable(id="knn_table", columns = [], data = [], style_table={'overflowX': 'auto'}),
-		#		width={"size": 10, "offset": 1}
-		#		)
-		#	]
-		#)
     ],
     className='ccontainer'
 )
