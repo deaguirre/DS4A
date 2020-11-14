@@ -53,19 +53,19 @@ nodes = {
                 'id':9,
                 'label': 'Ultrafiltration \n UF1',
                 'image':'./assets/icons/07_ultrafiltracion.svg','shape':'image', 
-                'x':600, 'y':400, 'size':40
+                'x':600, 'y':400, 'size':30
             },
             {
                 'id':10,
                 'label': 'Ultrafiltration \n UF2',
                 'image':'./assets/icons/07_ultrafiltracion.svg','shape':'image', 
-                'x':800, 'y':400, 'size':40
+                'x':800, 'y':400, 'size':30
             },
             {
                 'id':11,
                 'label': 'Flash \n Evaporation', 
                 'image':'./assets/icons/01_lavado.svg','shape':'image',
-                'x':1000, 'y':400, 'size':40, 
+                'x':1000, 'y':400, 'size':30, 
                 'font':{'color':'black', 'background':'white'}
             },
             {

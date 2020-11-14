@@ -69,7 +69,7 @@ def tableSelectedValues(content_id, table_columns:None, table_page_size:None):
                 'height':'auto',
                 'overflow': 'hidden',
                 'textOverflow': 'ellipsis',
-                # 'maxWidth': '100%',
+                'maxWidth': '90%',
                 'textAlign': 'left', 
                 'fontSize':'smaller'
             },

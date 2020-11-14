@@ -53,7 +53,7 @@ headerComponent = html.Div(
                                 dbc.DropdownMenuItem('Bloom',   href='/process_bloom',       className='custom-dropDownItem--text', id='Bloom_PANEL'),
                                 dbc.DropdownMenuItem('Viscosity',   href='/process_viscosity',   className='custom-dropDownItem--text', id='Viscosity_PANEL'),
                                 dbc.DropdownMenuItem('Clarity', href='/process_clarity', className='custom-dropDownItem--text', id='Clarity_PANEL'),
-                                dbc.DropdownMenuItem('Yield', href='.',       className='custom-dropDownItem--text')
+                                dbc.DropdownMenuItem('Yield', href='/process_yield',       className='custom-dropDownItem--text', id='Yield_PANEL')
                             ], label = 'Process', nav=True,  className='custom-dropDown--text'
                         ),
                         dbc.NavItem(dbc.NavLink('Trends', href='/trends', className='custom-nav--text')),

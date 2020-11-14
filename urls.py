@@ -7,6 +7,7 @@ from views.real_time import real_time_component as real_time
 from views.process_bloom   import process_component as process_bloom
 from views.process_clarity import process_component as process_clarity
 from views.process_viscosity import process_component as process_viscosity
+from views.process_yield import process_component as process_yield
 
 @app.callback(Output('page-content', 'children'),
               [
@@ -25,6 +26,8 @@ def display_page(pathname):
         return process_viscosity.layout
     elif(pathname == '/process_clarity'):
         return process_clarity.layout
+    elif(pathname == '/process_yield'):
+        return process_yield.layout
     #
     elif(pathname == '/trends'):
         return trends.layout
