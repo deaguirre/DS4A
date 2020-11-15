@@ -43,7 +43,7 @@ Economist and Master in Economics. Credit risk specialist.
 
 
 #Descripción Progel
-generalTopic = 'GENERAL DESCRIPTION'
+generalTopic = 'General Description'
 generalDescription = '''
 Gelco International is the new name for a group of four traditional gelatin manufacturers, present worldwide for over 50 years. These four companies, currently known as: Gelco Colombia (Barranquilla, Colombia); Progel (Manizales, Colombia); Gelco Brasil (Pedreira, Brazil) and Prodegel (Ambato, Ecuador), are now united under the name Gelco International.
 

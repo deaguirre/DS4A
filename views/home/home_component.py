@@ -13,8 +13,10 @@ layout = html.Div(
                 dbc.Row(
                     dbc.Col(
                         [
-                            html.H1(const.generalTopic),
+                            html.H2(const.generalTopic),
+                            html.Hr(),
                             html.P(const.generalDescription, className='text-justify'),
+                           
                         ]
                     )
                 )
