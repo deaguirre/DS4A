@@ -53,7 +53,7 @@ layout = html.Div(
 						dash_table.DataTable(id="knn_table", columns = [], data = [],style_cell={'textAlign': 'center', 'font-family':'verdana'})#, style_table={'overflowX': 'auto'})
 						)]),
 
-					], width={"size": 4}, align = "start"
+					], width={"size": 5}, align = "start"
 					),
 				
 				dbc.Col(
@@ -62,7 +62,7 @@ layout = html.Div(
 							dbc.CardHeader(html.P("3. Using the process variable measurements found, this will be the expected Bloom, Viscosity and Clarity levels",className='secondary-title')),
 							dbc.CardBody(dash_table.DataTable(id="knn_table_pred", columns = [], data = [],style_cell={'textAlign': 'center', 'font-family':'verdana'}))#, style_table={'overflowX': 'auto'}))
 						])
-					], width={"size": 4}, align = "start"
+					], width={"size":3}, align = "start"
 					)
 						
             ], align = "center"
