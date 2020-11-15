@@ -71,7 +71,7 @@ layout = html.Div(
                                     tableSelectedValues(
                                         'bloom_model_params_table',
                                         [{'name': i, 'id': i} for i in ['Parameter', 'Value']],
-                                        11
+                                        10
                                     ),
                                     'bloom_model_params'),
                         html.Br(),
