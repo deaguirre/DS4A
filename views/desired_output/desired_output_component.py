@@ -4,14 +4,17 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 import views.desired_output.desired_output_callbacks
+from views.desired_output import const
 
 layout = html.Div(
 			
 [
         dbc.Row(
-			dbc.Col(
-				html.H3("Considering the desired product characteristics of the gelatin such as Bloom, Viscosity and Clarity, this tab will display the associated parameters with higher probability of producing gelatin with those desired characteristics"), 
-				width={"size": 8}
+			dbc.Col([
+				html.H2(const.generalTitle),
+				html.Hr(),
+				html.P(const.generalDescription)], 
+				width={"size": 10}
 				), justify = "center"
 			),
 			html.Br(),

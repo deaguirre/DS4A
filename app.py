@@ -6,7 +6,8 @@ import flask
 STYLES =[dbc.themes.BOOTSTRAP, "https://www.w3schools.com/w3css/4/w3.css", ]
 
 
-app = dash.Dash(__name__, suppress_callback_exceptions=True, external_stylesheets=STYLES)
+app = dash.Dash(__name__, suppress_callback_exceptions=True, external_stylesheets=[dbc.themes.BOOTSTRAP])
+app.title = 'Dash | Progel'
 server = app.server
 
 
