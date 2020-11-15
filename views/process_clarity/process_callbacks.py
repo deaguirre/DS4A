@@ -4,7 +4,6 @@ from app import app
 from utils.action_buttons import get_button_pressed
 from utils.text_processing import validate_pattern
 from knowledge_module.model import CustomModel
-
 # Uncomment for local prediction
 # import knowledge_module.local_prediction.local_prediction as loc_pred
 # from knowledge_module.response_surface.response_surface import createResposeSurfaceAPI
@@ -99,29 +98,12 @@ def clarity_modal_events_controller(net_selection,
 
     Args:
         net_selection: network selection state
-        cancel1: Receives the interaction of the cancel button (n_clicks_timestamp) of the modal 1.
-        cancel2: Receives the interaction of the cancel button (n_clicks_timestamp) of the modal 2.
-        cancel3: Receives the interaction of the cancel button (n_clicks_timestamp) of the modal 3.
-        update1: Receives the interaction of the update button (n_clicks_timestamp) of the modal 1.
-        update2: Receives the interaction of the update button (n_clicks_timestamp) of the modal 2.
-        update3: Receives the interaction of the update button (n_clicks_timestamp) of the modal 3.
-        m1: Receives the state of of the modal 1 (is_open).
-        m2: Receives the state of of the modal 2 'is_open).
-        m3: Receives the state of of the modal 3 (is_open).
-        input1: Receives the value of input component 1 (value).
-        input2: Receives the value of input component 2 (value).
-        input3: Receives the value of input component 3 (value).
-        input4: Receives the value of input component 4 (value).
-        input5: Receives the value of input component 5 (value).
-        input6: Receives the value of input component 6 (value).
-        input7: Receives the value of input component 7 (value).
-        input8: Receives the value of input component 8 (value).
-        input9: Receives the value of input component 9 (value).
-        input10: Receives the value of input component 10 (value).
-        input11: Receives the value of input component 111 (value).
+        canceln: The interaction with the cancel button (n_clicks_timestamp) of the modal n.
+        updaten: The interaction with the update button (n_clicks_timestamp) of the modal n.
+        inputm: The value of input component m (value).
 
     Returns:
-        The state of modals m1,m2,m3.
+        A Boolean list with the state of process modals m1 m2 m3.
     """
     ctxt = dash.callback_context
     
@@ -166,7 +148,7 @@ def clarity_modal_events_controller(net_selection,
 def clarity_showParams(btn, btn1, model, data):
     """
     A callback function that creates a prediction with current state of values in the process,
-     also clear to original state 
+     also clear to original state. 
 
     Args:
         btn: The interaction with the button calculate (n_clicks) .
@@ -189,12 +171,12 @@ def clarity_showParams(btn, btn1, model, data):
 
     elif ctx.triggered[0]['prop_id'].split(".")[0] == 'clarity_btn_res':
         # Reset values
-        #clarity_obj_model.set_variables(clarity_default_parameters)
+        clarity_obj_model.set_variables(clarity_default_parameters)
         # 
-        #pred = clarity_obj_model.predictionAPI(
-        #    'clarity', model, api_url['predict'])['message'][0]['prediction']
-        #pred1 = "{:.3f} NTU".format(float(pred))
-        return [""]
+        pred = clarity_obj_model.predictionAPI(
+            'clarity', model, api_url['predict'])['message'][0]['prediction']
+        pred1 = "{:.3f} NTU".format(float(pred))
+        return [pred1]
 
 # 4. Action: Open help modal to show information about the output and process
 @app.callback(
@@ -210,9 +192,9 @@ def clarity_openHelpController(okBtn, btn, m1):
     A callback function that opens a help modal to show information about the output and process.
 
     Args:
-        okBtn: The interaction with the ok button (n_clicks_timestamp)
-        btn: The interaction with the help image (n_clicks_timestamp)
-        m1: The state of the help modal (is_open)
+        okBtn: The interaction with the ok button (n_clicks_timestamp).
+        btn: The interaction with the help image (n_clicks_timestamp).
+        m1: The state of the help modal (is_open).
 
     Returns:
         The state of the help modal.
@@ -245,8 +227,8 @@ def clarity_toggle_parameters(n1, is_open1):
     with currect value of parameters.
 
     Args:
-        n1: The interaction with the ok button (n_clicks_timestamp)
-        is_open1: The state of the table modal (is_open)
+        n1: The interaction with the ok button (n_clicks_timestamp).
+        is_open1: The state of the table modal (is_open).
 
     Returns:
         A list with the state of the table modal and a DataFrame with data of the current values [state, DataFrame].
@@ -275,7 +257,17 @@ def clarity_toggle_parameters(n1, is_open1):
     [Input('clarity_3D_Plot', 'n_clicks')],
     [State('clarity_3D_Plot_content', 'is_open')]
 )
-def clarity_toggle_response(n1, is_open1):
+def clarity_openSurfaceResponse(n1, is_open1):
+    """
+    A callback function that open the modal with the surface response.
+
+    Args:
+        n1: The interaction with the clarity 3D Plot content body button (n_clicks_timestamp).
+        is_open1: The state of the surface response modal (is_open).
+
+    Returns:
+        The state of the surface response modal.
+    """
     ctx = dash.callback_context
     if not ctx.triggered:
         return False
@@ -296,7 +288,18 @@ def clarity_toggle_response(n1, is_open1):
     ],
     [State('clarity_3D_modal', 'is_open')]
 )
-def clarity_openHelpController(okBtn, btn, m1):
+def clarity_closeSurfaceResponse(okBtn, btn, m1):
+    """
+    A callback function that close the modal with the surface response.
+
+    Args:
+        okbtn: The interaction with the ok button (n_clicks_timestamp).
+        n1: The interaction with the clarity 3D Plot content body button (n_clicks_timestamp).
+        is_open1: The state of the surface response modal (is_open).
+
+    Returns:
+        The state of the surface response modal.
+    """
     ctx = dash.callback_context
     
     if ctx.triggered[0]['prop_id'].split(".")[0] == 'clarity_3D_Plot_content_body_button':
@@ -321,6 +324,18 @@ def clarity_openHelpController(okBtn, btn, m1):
     prevent_initial_call=True
 )
 def clarity_showResponseSurface(n_clicks, in1, in2, value):
+    """
+    A callback function that create a model with surface response after request.
+
+    Args:
+        nclicks: The interaction with the clarity 3D Plot content body button (n_clicks_timestamp)
+        in1: The interaction with the dropdown 1 (value)
+        1n2: The interaction with the dropdown 2 (value)
+        value: The chosen model in clarity demo model (value).
+
+    Returns:
+        A list with the state of the table modal and a DataFrame with data of the current values [state, DataFrame].
+    """
     ctx = dash.callback_context
     if n_clicks is None:
         raise dash.exceptions.PreventUpdate
@@ -330,4 +345,3 @@ def clarity_showResponseSurface(n_clicks, in1, in2, value):
         plot = createResposeSurfaceAPI('clarity', value, clarity_variables, in1, in2, api_url['surf_response'])
 
         return plot
-print()
