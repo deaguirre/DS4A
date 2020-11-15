@@ -3,6 +3,7 @@ import dash_html_components as html
 from app import app
 from utils.action_buttons import get_button_pressed
 from utils.text_processing import validate_pattern
+from utils.prettyfyName import getPrettyVariableName, ref_dict
 from knowledge_module.model import CustomModel
 
 # Uncomment for local prediction
@@ -180,6 +181,9 @@ def bloom_openHelpController(okBtn, btn, m1):
         return m1
 
 # 5. Action: Open/close collapsible modal with a table with currect value of parameters
+
+ref_dict = pd.read_csv('./utils/010_DFT1b1_dictionary.csv', encoding='latin1')
+
 @app.callback(
     [
         Output('bloom_parameters_content', 'is_open'),
@@ -213,11 +217,16 @@ def bloom_toggle_parameters(n1, is_open1):
     if button_id == "bloom_parameters" and n1:
         # Create table with value of inputs for the user
         dictionary = bloom_obj_model.dict_var
-        #print(dictionary)
-        df = pd.DataFrame(dictionary, index=['Value'])\
-            .transpose().reset_index().rename(columns={'index': 'Parameter'}).to_dict('records')
-        #print(df)
-        return [not is_open1, df]
+        # print(dictionary)
+        variable_dataframe = pd.DataFrame(dictionary, index=['Value'])\
+        .transpose()\
+        .reset_index()\
+        .assign(index = lambda df: getPrettyVariableName(df['index'], ref_dict))\
+        .rename(columns={'index': 'Parameter'})\
+        .to_dict('records')
+        
+        # print(variable_dataframe)
+        return [not is_open1, variable_dataframe]
     
     return [False, None]
 

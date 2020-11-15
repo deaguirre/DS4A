@@ -63,14 +63,16 @@ def tableSelectedValues(content_id, table_columns:None, table_page_size:None):
     Returns:
         Collapsible panel to be shown on main frame on the left of process tables
     """
-    inner_card = dash_table.DataTable(
+    inner_card = html.Div([
+        html.Br(),
+        dash_table.DataTable(
             style_cell={
                 'whiteSpace':'normal',
                 'height':'auto',
                 'overflow': 'hidden',
                 'textOverflow': 'ellipsis',
                 'maxWidth': '90%',
-                'textAlign': 'center', 
+                'textAlign': 'left', 
                 'fontSize':'smaller',
                 'font-family':'verdana'
             },
@@ -79,6 +81,8 @@ def tableSelectedValues(content_id, table_columns:None, table_page_size:None):
             columns=table_columns,
             page_size=table_page_size
         )
+    ], style={'width': '100%', 'padding': '0%'})
+    
     return inner_card
 
 def makeColapsible(title,title_id, content, content_id):
