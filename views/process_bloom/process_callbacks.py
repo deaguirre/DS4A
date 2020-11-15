@@ -37,6 +37,17 @@ bloom_obj_model.set_variables( [i for i in bloom_modal_specs['placeholder']] )
     [Input('updateModal_bloom_Process_M'+str(i+1), 'n_clicks_timestamp') for i in range(8)],
 )
 def bloom_reset_net(*args):
+    """
+    A callback function that receives as input the interaction of 
+    the update and cancel button when a modal is open and allows to restart 
+    the network selection state.
+
+    Args:
+        *arg: Receives the interaction with the update and cancel button (n_clicks_timestamp)
+
+    Returns:
+        A dictionary with the network selection state.
+    """
     return {'nodes': [], 'edges': []}
 
 # 2. Action: open and close modals according to selection in process map
@@ -50,6 +61,17 @@ def bloom_reset_net(*args):
     prevent_initial_call=True
 )
 def bloom_modal_events_controller(net_selection, *args):
+    """
+    A callback function that allows visualize the name of a process 
+    and its associated variables according to the open modal.
+
+    Args:
+        net_selection: network selection state
+        *arg: Receives the interaction with the accept button (n_clicks_timestamp) of a certain modal.
+
+    Returns:
+        A Boolean list with the state of modals.
+    """
     ctxt = dash.callback_context
     bloom_modal_positions = [5, 19, 7, 8, 11, 12, 13, 15]
     modal_positions = [False] * 8
@@ -94,6 +116,19 @@ def bloom_modal_events_controller(net_selection, *args):
     prevent_initial_call=True)
 
 def bloom_showParams(btn, btn1, model, data):
+    """
+    A callback function that creates a prediction with current state of values in the process,
+     also clear to original state 
+
+    Args:
+        btn: The interaction with the button calculate (n_clicks) .
+        btn1: The interaction with the button reset (n_clicks). 
+        model: The chosen model (value).
+        data: Receives the current state of values in the process.
+
+    Returns:
+        A list with the output value [Bloom]
+    """
     ctx = dash.callback_context
 
     if ctx.triggered[0]['prop_id'].split(".")[0] in ['bloom_btn_cal', 'bloom_demo_model']:
@@ -109,10 +144,10 @@ def bloom_showParams(btn, btn1, model, data):
         # Reset values
         bloom_obj_model.set_variables(bloom_default_parameters)
         # 
-        pred = bloom_obj_model.predictionAPI(
-            'bloom', model, api_url['predict'])['message'][0]['prediction']
-        pred1 = "{:.3f} g".format(float(pred))
-        return [pred1]
+        #pred = bloom_obj_model.predictionAPI(
+        #    'bloom', model, api_url['predict'])['message'][0]['prediction']
+        #pred1 = "{:.3f} g".format(float(pred))
+        return [""]
 
 # 4. Action: Open help modal to show information about the output and process
 @app.callback(
@@ -124,6 +159,17 @@ def bloom_showParams(btn, btn1, model, data):
     [State('bloom_Process_Help', 'is_open')]
 )
 def bloom_openHelpController(okBtn, btn, m1):
+    """
+    A callback function that opens a help modal to show information about the output and process.
+
+    Args:
+        okBtn: The interaction with the ok button (n_clicks_timestamp)
+        btn: The interaction with the help image (n_clicks_timestamp)
+        m1: The state of the help modal (is_open)
+
+    Returns:
+        The state of the help modal.
+    """
     ctx = dash.callback_context
     
     if validate_pattern('bloom_help_head_image', ctx.triggered[0]['prop_id']):
@@ -147,6 +193,17 @@ def bloom_openHelpController(okBtn, btn, m1):
     ]
 )
 def bloom_toggle_parameters(n1, is_open1):
+    """
+    A callback function that Opens/closes a collapsible modal with a table 
+    with currect value of parameters.
+
+    Args:
+        n1: The interaction with the ok button (n_clicks_timestamp)
+        is_open1: The state of the table modal (is_open)
+
+    Returns:
+        A list with the state of the table modal and a DataFrame with data of the current values [state, DataFrame].
+    """
     ctx = dash.callback_context
     if not ctx.triggered:
         return [False, None]
@@ -191,7 +248,18 @@ def toggle_bloom_parameters(n1, is_open1):
     ],
     [State('bloom_3D_modal', 'is_open')]
 )
-def openHelpController(okBtn, btn, m1):
+def closeSurfaceResponse(okBtn, btn, m1):
+    """
+    A callback function that close the modal with the surface response
+
+    Args:
+        okbtn: The interaction with the ok button (n_clicks_timestamp)
+        n1: The interaction with the ok button (n_clicks_timestamp)
+        is_open1: The state of the table modal (is_open)
+
+    Returns:
+        A list with the state of the table modal and a DataFrame with data of the current values [state, DataFrame].
+    """
     ctx = dash.callback_context
     
     if ctx.triggered[0]['prop_id'].split(".")[0] == 'bloom_3D_Plot_content_body_button':
@@ -216,6 +284,17 @@ def openHelpController(okBtn, btn, m1):
     prevent_initial_call=True
 )
 def showResponseSurface(n_clicks, in1, in2, value):
+    """
+    A callback function that Opens/closes a collapsible modal with a table 
+    with currect value of parameters.
+
+    Args:
+        n1: The interaction with the ok button (n_clicks_timestamp)
+        is_open1: The state of the table modal (is_open)
+
+    Returns:
+        A list with the state of the table modal and a DataFrame with data of the current values [state, DataFrame].
+    """
     ctx = dash.callback_context
     if n_clicks is None:
         raise dash.exceptions.PreventUpdate

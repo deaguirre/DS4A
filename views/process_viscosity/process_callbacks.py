@@ -107,12 +107,12 @@ def viscosity_showParams(btn, btn1, model, data):
 
     elif ctx.triggered[0]['prop_id'].split(".")[0] == 'viscosity_btn_res':
         # Reset values
-        viscosity_obj_model.set_variables(viscosity_default_parameters)
+        #viscosity_obj_model.set_variables(viscosity_default_parameters)
         # 
-        pred = viscosity_obj_model.predictionAPI(
-            'viscosity', model, api_url['predict'])['message'][0]['prediction']
-        pred1 = "{:.2f} miliPoises".format(float(pred))
-        return [pred1]
+        #pred = viscosity_obj_model.predictionAPI(
+        #    'viscosity', model, api_url['predict'])['message'][0]['prediction']
+        #pred1 = "{:.2f} miliPoises".format(float(pred))
+        return [""]
 
 # 4. Action: Open help modal to show information about the output and process
 @app.callback(

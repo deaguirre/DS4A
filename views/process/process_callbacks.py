@@ -73,9 +73,8 @@ def reset_net(*args):
 )
 def modal_events_controller(net_selection,*args):
     """
-    A callback function that receives network selection state and
-    the interaction of the accept button and it allows visualize 
-    the name of a process and its associated variables according to the open modal.
+    A callback function that allows visualize the name of a process 
+    and its associated variables according to the open modal.
 
     Args:
         net_selection: network selection state
@@ -108,7 +107,7 @@ def modal_events_controller(net_selection,*args):
     [Input(str(k), "value") for k in ids],
     #prevent_initial_call=True
 )
-def output_list(*args):
+def output(*args):
     """
     A callback function which receives the updates of the input components by ID 
     and returns a JSON with all the inputs values.
@@ -134,17 +133,15 @@ def output_list(*args):
     State("user-input", "children"),
     prevent_initial_call=True)
 
-def calculate_button_controller(btn,btn1,data):
+def multi_showParams(btn,btn1,data):
     """
-    A callback function that calculates and returns the output variables given
-    a previously trained model, and the JSON file with all the input process values 
-    entered by the user, if it receives a calculate button interaction. It returns an empty list,
-    if it receives a reset button interaction. 
+    A callback function that creates a prediction with current state of values in the process,
+     also clear to original state 
 
     Args:
         btn: The interaction with the accept button (n_clicks_timestamp)
         btn1: The interaction with the reset button (n_clicks_timestamp)
-        data: A JSON file with all input process variables enteref by the user
+        data: The current state of values in the process.
 
     Returns:
         A list with the values of the output values [Bloom, clarity, viscosity]
@@ -190,7 +187,18 @@ def reset_button_controller(btn):
     ],
     [State('multiResponse_Help', 'is_open')]
 )
-def bloom_openHelpController(okBtn, btn, m1):
+def multi_openHelpController(okBtn, btn, m1):
+    """
+    A callback function that opens a help modal to show information about the output and process.
+
+    Args:
+        okBtn: The interaction with the ok button (n_clicks_timestamp)
+        btn: The interaction with the help image (n_clicks_timestamp)
+        m1: The state of the help modal (is_open)
+
+    Returns:
+        The state of the help modal.
+    """
     ctx = dash.callback_context
     
     if validate_pattern('multiResponse_help_head_image', ctx.triggered[0]['prop_id']):

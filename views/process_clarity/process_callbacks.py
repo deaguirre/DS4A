@@ -38,6 +38,17 @@ clarity_default_parameters = [1, 0, 0, 0, 0, 76.20, 176.28, 118.48, 63.53, 58.83
     [Input('updateModal_clarity_Process_M'+str(i+1), 'n_clicks_timestamp') for i in range(3)]
 )
 def clarity_reset_net(*args):
+    """
+    A callback function that receives as input the interaction of 
+    the update and cancel button when a modal is open and allows to restart 
+    the network selection state.
+
+    Args:
+        *arg: Receives the interaction with the update and cancel button (n_clicks_timestamp)
+
+    Returns:
+        A dictionary with the network selection state.
+    """
     return {'nodes': [], 'edges': []}
 
 # 2. Action: open and close modals according to selection in process map
@@ -82,7 +93,36 @@ def clarity_modal_events_controller(net_selection,
             m1, m2, m3, 
             input1, input2, input3, input4, input5, input6, 
             input7, input8, input9, input10, input11):
-    
+    """
+    A callback function that allows visualize the name of a process 
+    and its associated variables according to the open modal.
+
+    Args:
+        net_selection: network selection state
+        cancel1: Receives the interaction of the cancel button (n_clicks_timestamp) of the modal 1.
+        cancel2: Receives the interaction of the cancel button (n_clicks_timestamp) of the modal 2.
+        cancel3: Receives the interaction of the cancel button (n_clicks_timestamp) of the modal 3.
+        update1: Receives the interaction of the update button (n_clicks_timestamp) of the modal 1.
+        update2: Receives the interaction of the update button (n_clicks_timestamp) of the modal 2.
+        update3: Receives the interaction of the update button (n_clicks_timestamp) of the modal 3.
+        m1: Receives the state of of the modal 1 (is_open).
+        m2: Receives the state of of the modal 2 'is_open).
+        m3: Receives the state of of the modal 3 (is_open).
+        input1: Receives the value of input component 1 (value).
+        input2: Receives the value of input component 2 (value).
+        input3: Receives the value of input component 3 (value).
+        input4: Receives the value of input component 4 (value).
+        input5: Receives the value of input component 5 (value).
+        input6: Receives the value of input component 6 (value).
+        input7: Receives the value of input component 7 (value).
+        input8: Receives the value of input component 8 (value).
+        input9: Receives the value of input component 9 (value).
+        input10: Receives the value of input component 10 (value).
+        input11: Receives the value of input component 111 (value).
+
+    Returns:
+        The state of modals m1,m2,m3.
+    """
     ctxt = dash.callback_context
     
     #If we want to open a modal
@@ -124,6 +164,19 @@ def clarity_modal_events_controller(net_selection,
     prevent_initial_call=True)
 
 def clarity_showParams(btn, btn1, model, data):
+    """
+    A callback function that creates a prediction with current state of values in the process,
+     also clear to original state 
+
+    Args:
+        btn: The interaction with the button calculate (n_clicks) .
+        btn1: The interaction with the button reset (n_clicks). 
+        model: The chosen model (value).
+        data: The current state of values in the process.
+
+    Returns:
+        A list with the output value [Clarity]
+    """
     ctx = dash.callback_context
 
     if ctx.triggered[0]['prop_id'].split(".")[0] in ['clarity_btn_cal', 'clarity_demo_model']:
@@ -136,12 +189,12 @@ def clarity_showParams(btn, btn1, model, data):
 
     elif ctx.triggered[0]['prop_id'].split(".")[0] == 'clarity_btn_res':
         # Reset values
-        clarity_obj_model.set_variables(clarity_default_parameters)
+        #clarity_obj_model.set_variables(clarity_default_parameters)
         # 
-        pred = clarity_obj_model.predictionAPI(
-            'clarity', model, api_url['predict'])['message'][0]['prediction']
-        pred1 = "{:.3f} NTU".format(float(pred))
-        return [pred1]
+        #pred = clarity_obj_model.predictionAPI(
+        #    'clarity', model, api_url['predict'])['message'][0]['prediction']
+        #pred1 = "{:.3f} NTU".format(float(pred))
+        return [""]
 
 # 4. Action: Open help modal to show information about the output and process
 @app.callback(
@@ -153,6 +206,17 @@ def clarity_showParams(btn, btn1, model, data):
     [State('clarity_Process_Help', 'is_open')]
 )
 def clarity_openHelpController(okBtn, btn, m1):
+    """
+    A callback function that opens a help modal to show information about the output and process.
+
+    Args:
+        okBtn: The interaction with the ok button (n_clicks_timestamp)
+        btn: The interaction with the help image (n_clicks_timestamp)
+        m1: The state of the help modal (is_open)
+
+    Returns:
+        The state of the help modal.
+    """
     ctx = dash.callback_context
     
     if validate_pattern('clarity_help_head_image', ctx.triggered[0]['prop_id']):
@@ -176,6 +240,17 @@ def clarity_openHelpController(okBtn, btn, m1):
     ]
 )
 def clarity_toggle_parameters(n1, is_open1):
+    """
+    A callback function that Opens/closes a collapsible modal with a table 
+    with currect value of parameters.
+
+    Args:
+        n1: The interaction with the ok button (n_clicks_timestamp)
+        is_open1: The state of the table modal (is_open)
+
+    Returns:
+        A list with the state of the table modal and a DataFrame with data of the current values [state, DataFrame].
+    """
     ctx = dash.callback_context
     if not ctx.triggered:
         return [False, None]
