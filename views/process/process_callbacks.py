@@ -181,3 +181,21 @@ def reset_button_controller(btn):
     """
     return initial
 
+# Action: Open help modal to show information about the output and process
+@app.callback(
+    Output('multiple_Process_Help', 'is_open'),
+    [
+        Input('okButton_bloom_Process_Help','n_clicks_timestamp'),
+        Input("bloom_help_head_image", "n_clicks")
+    ],
+    [State('multiple_Process_Help', 'is_open')]
+)
+def bloom_openHelpController(okBtn, btn, m1):
+    ctx = dash.callback_context
+    
+    if validate_pattern('bloom_help_head_image', ctx.triggered[0]['prop_id']):
+        m1 = True
+        return m1
+    elif ctx.triggered[0]['prop_id'].split(".")[0] == 'okButton_bloom_Process_Help':
+        m1 = False
+        return m1
