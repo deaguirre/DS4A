@@ -26,13 +26,13 @@ def help_header(title, id):
     help_header = dbc.CardHeader(
         dbc.Row([
             dbc.Col(
-                html.P([title], className='secondary-title', style={'padding': '0%'}, id=title_id), width=10,
+                html.H5([title], className='secondary-title', style={'padding': '0%'}, id=title_id), width=10,
                 style={'padding': '0%'}
             ),
             dbc.Col(
                 html.Button(style=buttom_dict, id=img_id),
                 width=2,
-                style={'padding': '0%'}
+                style={'padding': '0%', 'align-items': 'center', 'display':'flex'}
             )
         ], style={'padding': '0%', 'width': '96%', 'margin': 'auto'})
     )

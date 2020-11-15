@@ -34,10 +34,10 @@ def getPrettyVariableName(name:pd.Series, df_dict:pd.DataFrame, type='short',
         # print(i, var.lower())
         try:
             string = df_dict1.loc[var.lower(), feature_variable]
-            print(string)
+            # print(string)
         except:
-            string = 'Nada'
-            print(string)
+            string = 'None'
+            # print(string)
     
         ls.append(string)
     return ls
