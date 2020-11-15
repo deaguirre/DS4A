@@ -21,8 +21,8 @@ from components.help_header.collapsible_panel_component import makeColapsible, t
 # Help Page Items
 yield_description = html.Div([
     html.P([
-        "Yield refers to the amount of gelatin produced from the raw material.",
-        "It's measured as percent taking into account the weight of gelatin produced over the weight of raw material entering the process.",
+        "Yield refers to the amount of gelatin produced from the raw material. ",
+        "It's measured as percent taking into account the weight of gelatin produced over the weight of raw material entering the process. ",
         "Gelatin yield is highly dependent on the starting material and on the extraction process."
 
     ]),

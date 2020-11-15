@@ -50,7 +50,7 @@ def yield_reset_net(*args):
 )
 def yield_modal_events_controller(net_selection, *args):
     ctxt = dash.callback_context
-    yield_modal_positions = [1,9,12,15]
+    yield_modal_positions = [1, 11, 12, 15]
     modal_positions = [False] * 4
 
     #If a node is selected check in modal_positions if this node corresponds to any of the 
