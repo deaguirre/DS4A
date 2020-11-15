@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generado por Microsoft Visio, SVG Export 04_centrifugacion.svg Centrifugacion -->
+<!-- Generado por Microsoft Visio, SVG Export 04_centrifugacion.svg Página-1 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
-		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="3.44508in" height="2.15812in"
-		viewBox="0 0 248.046 155.385" xml:space="preserve" color-interpolation-filters="sRGB" class="st2">
-	<v:documentProperties v:langID="9226" v:metric="true" v:viewMarkup="false">
-		<v:userDefs>
-			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
-		</v:userDefs>
-	</v:documentProperties>
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="3.69714in" height="2.05586in"
+		viewBox="0 0 266.194 148.022" xml:space="preserve" color-interpolation-filters="sRGB" class="st2">
+	<v:documentProperties v:langID="9226" v:metric="true" v:viewMarkup="false"/>
 
 	<style type="text/css">
 	<![CDATA[
-		.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st1 {fill:#ffffff;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:7}
 		.st2 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
 
-	<g v:mID="6" v:index="4" v:groupContext="foregroundPage">
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="PEHideTags"/>
 		</v:userDefs>
-		<title>Centrifugacion</title>
+		<title>Página-1</title>
 		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
 				v:shadowOffsetY="-8.50394"/>
 		<v:layer v:name="Equipo" v:index="0"/>
-		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(166.408,24.9911) rotate(90)">
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(188.982,3.5) rotate(90)">
 			<title>Columna</title>
 			<v:custProps>
 				<v:cp v:nameU="SubType" v:lbl="Mostrar costura" v:type="3" v:langID="3082" v:val="VT0(0):26"/>
@@ -48,8 +44,8 @@
 				<v:ud v:nameU="PELayout" v:val="VT0(31):26"/>
 				<v:ud v:nameU="CPMSetList" v:prompt="Description,Material,Manufacturer,Model" v:val="VT4(Equipo)"/>
 			</v:userDefs>
-			<path d="M0 127.67 A56.3431 33.7586 -180 0 0 110.87 127.67 L110.87 -38.63 A56.3431 33.7586 -180 0 0 -0 -38.63 L0 127.67
-						 Z" class="st1"/>
+			<path d="M0 120.3 A56.3431 33.7586 -180 0 0 110.87 120.3 L110.87 -46 A56.3431 33.7586 -180 0 0 -0 -46 L0 120.3 Z"
+					class="st1"/>
 		</g>
 	</g>
 </svg>

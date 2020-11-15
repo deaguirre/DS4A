@@ -13,7 +13,7 @@
 	<style type="text/css">
 	<![CDATA[
 		.st1 {fill:#ffffff}
-		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:4}
 		.st3 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
@@ -26,7 +26,7 @@
 		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
 				v:shadowOffsetY="-8.50394"/>
 		<v:layer v:name="Equipo" v:index="0"/>
-		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(18.375,-57.9759)">
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(7.08661,-30.9177)">
 			<title>Filtro 1.121</title>
 			<v:custProps>
 				<v:cp v:nameU="Description" v:lbl="Descripción" v:type="0" v:sortKey="0" v:langID="3082"/>
@@ -47,10 +47,10 @@
 				<v:ud v:nameU="CPMSetList" v:prompt="Description,Material,Manufacturer,Model" v:val="VT4(Equipo)"/>
 				<v:ud v:nameU="PEComponentTag" v:val="VT4(E-0)"/>
 			</v:userDefs>
-			<path d="M0 159.36 L0 76.35 L156.33 76.35 L156.33 159.36 L0 159.36 Z" class="st1"/>
-			<path d="M0 159.36 L0 76.35 L156.33 76.35 L156.33 159.36 L0 159.36" class="st2"/>
-			<path d="M39.08 159.36 L39.08 76.35 L117.25 76.35 L117.25 159.36 L39.08 159.36" class="st2"/>
-			<path d="M39.08 117.85 A39.0827 41.5037 -180 1 1 117.25 117.85 A39.0827 41.5037 -180 1 1 39.08 117.85" class="st2"/>
+			<path d="M0 159.36 L0 65.29 L177.17 65.29 L177.17 159.36 L0 159.36 Z" class="st1"/>
+			<path d="M0 159.36 L0 65.29 L177.17 65.29 L177.17 159.36 L0 159.36" class="st2"/>
+			<path d="M44.29 159.36 L44.29 65.29 L132.87 65.29 L132.87 159.36 L44.29 159.36" class="st2"/>
+			<path d="M44.29 112.32 A44.2913 47.035 -180 1 1 132.87 112.32 A44.2913 47.035 -180 1 1 44.29 112.32" class="st2"/>
 		</g>
 	</g>
 </svg>

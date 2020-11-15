@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generado por Microsoft Visio, SVG Export 10_refrigeracion.svg Refrigeracion -->
+<!-- Generado por Microsoft Visio, SVG Export 10_refrigeracion.svg Página-1 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
-		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="1.83333in" height="1.73612in" viewBox="0 0 132 125"
-		xml:space="preserve" color-interpolation-filters="sRGB" class="st3">
-	<v:documentProperties v:langID="9226" v:metric="true" v:viewMarkup="false">
-		<v:userDefs>
-			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
-		</v:userDefs>
-	</v:documentProperties>
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="1.78204in" height="1.67954in"
+		viewBox="0 0 128.307 120.927" xml:space="preserve" color-interpolation-filters="sRGB" class="st3">
+	<v:documentProperties v:langID="9226" v:metric="true" v:viewMarkup="false"/>
 
 	<style type="text/css">
 	<![CDATA[
 		.st1 {fill:#ffffff}
-		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {stroke:#000000;stroke-linecap:round;stroke-linejoin:round;stroke-width:5}
 		.st3 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
 	]]>
 	</style>
 
-	<g v:mID="12" v:index="10" v:groupContext="foregroundPage">
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
 		<v:userDefs>
 			<v:ud v:nameU="PEHideTags"/>
 		</v:userDefs>
-		<title>Refrigeracion</title>
+		<title>Página-1</title>
 		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
 				v:shadowOffsetY="-8.50394"/>
 		<v:layer v:name="Equipo" v:index="0"/>
-		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(23.4803,-70.5024)">
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" v:layerMember="0" transform="translate(2.5,-66.0485)">
 			<title>Refrigerador: corriente de aire.126</title>
 			<v:custProps>
 				<v:cp v:nameU="Description" v:lbl="Descripción" v:type="0" v:sortKey="0" v:langID="3082"/>
@@ -47,13 +43,13 @@
 				<v:ud v:nameU="PELayout" v:val="VT0(31):26"/>
 				<v:ud v:nameU="CPMSetList" v:prompt="Description,Material,Manufacturer,Model" v:val="VT4(Equipo)"/>
 			</v:userDefs>
-			<path d="M0 125 L85.04 125 L85.04 94.9 L0 94.9 L0 125 ZM27.64 134.03 L57.4 146.07 A5.74595 7.39623 -180 0 0 57.4 134.03
-						 L27.64 146.07 A5.74595 7.39623 0 0 1 27.64 134.03 Z" class="st1"/>
-			<path d="M0 125 L85.04 125 L85.04 94.9 L0 94.9 L0 125" class="st2"/>
-			<path d="M10.63 88.88 L10.63 131.02 L0 155.1" class="st2"/>
-			<path d="M74.41 88.88 L74.41 131.02 L85.04 155.1" class="st2"/>
-			<path d="M27.64 134.03 L57.4 146.07 A5.74595 7.39623 -180 0 0 57.4 134.03 L27.64 146.07 A5.74595 7.39623 0 0 1 27.64
-						 134.03" class="st2"/>
+			<path d="M0 120.93 L123.31 120.93 L123.31 77.28 L0 77.28 L0 120.93 ZM40.07 134.02 L83.23 151.48 A8.33163 10.7245 -180
+						 0 0 83.23 134.02 L40.07 151.48 A8.33163 10.7245 0 0 1 40.07 134.02 Z" class="st1"/>
+			<path d="M0 120.93 L123.31 120.93 L123.31 77.28 L0 77.28 L0 120.93" class="st2"/>
+			<path d="M15.41 68.55 L15.41 129.66 L0 164.58" class="st2"/>
+			<path d="M107.89 68.55 L107.89 129.66 L123.31 164.58" class="st2"/>
+			<path d="M40.07 134.02 L83.23 151.48 A8.33163 10.7245 -180 0 0 83.23 134.02 L40.07 151.48 A8.33163 10.7245 0 0 1 40.07
+						 134.02" class="st2"/>
 		</g>
 	</g>
 </svg>

@@ -18,28 +18,29 @@ from app import app
 c=[]
 for a in modal:
    c.append([modal[a][m]['id'] for m in range(len(modal[a]))])
-inputs =[item for sublist in c for item in sublist]
+inputs = [item for sublist in c for item in sublist]
 
-initial=[]
+initial = []
 for i in process_values:
     for j in i['initial']:
         initial.append(j)
-ids=[]
+ids = []
 for i in process_values:
     for j in i['var_id']:
         ids.append(j)
-id=[]
+id = []
 for i in range(len(process_values)):
-    id.append(process_values[i]['id'])   
+    id.append(process_values[i]['id'])
 
-df=pd.Series(initial,index=ids)     
+df = pd.Series(initial, index=ids)
 
 
 ## Callback for the accept button when a modal is open
 
 @app.callback(
     Output('net', 'selection'),
-    [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
+    [Input('cancelModal_'+str(m),'n_clicks_timestamp') for m in modal]+
+    [Input('updateModal_'+str(m), 'n_clicks_timestamp') for m in modal],
 
 )
 def reset_net(*args):
@@ -58,10 +59,13 @@ def reset_net(*args):
 
 ##Callback for the interaction between the user and the process graph
 ## It allows to open the the modal with proper variables
+
+
 @app.callback(
     [Output(str(m),'is_open') for m in modal],
     [Input('net', 'selection')]+
-    [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
+    [Input('cancelModal_'+str(m),'n_clicks_timestamp') for m in modal]+
+    [Input('updateModal_'+str(m), 'n_clicks_timestamp') for m in modal],
     [State(str(m),'is_open') for m in modal]+
     [State(m,'value') for m in inputs],
 
@@ -84,7 +88,7 @@ def modal_events_controller(net_selection,*args):
     for i in range(len(process_values)):
         ids.append(process_values[i]['id'])
     ctxt = dash.callback_context
-    m=[False]*len(modal)
+    m = [False]*len(modal)
     #If we want to open a modal
     if(len(net_selection['nodes']) > 0):
         for l in range(len(ids)):
@@ -92,8 +96,8 @@ def modal_events_controller(net_selection,*args):
                 m[l] = True
 
     #If we want to close a modal
-    if(validate_pattern('accept', ctxt.triggered[0]['prop_id'])):
-         m=[False]*len(modal)
+    if(validate_pattern('update', ctxt.triggered[0]['prop_id'])):
+        m = [False]*len(modal)
     return m
 
 
@@ -101,7 +105,7 @@ def modal_events_controller(net_selection,*args):
 ## It allows to save the changes of variables in a DataFrame
 @app.callback(
     Output("user-input", "children"),
-    [Input(str(k),"value") for k in ids],
+    [Input(str(k), "value") for k in ids],
     #prevent_initial_call=True
 )
 def output_list(*args):
@@ -116,16 +120,18 @@ def output_list(*args):
         A JSON file with the inputs process values entered by the user.
     """
     ctx = dash.callback_context
-    df[ctx.triggered[0]['prop_id'].split(".")[0]]=ctx.triggered[0]['value']
-    return  df.to_json(date_format='iso', orient='split')
+    df[ctx.triggered[0]['prop_id'].split(".")[0]] = ctx.triggered[0]['value']
+    return df.to_json(date_format='iso', orient='split')
 
 ## Callback for the interaction with the buttton Calculate and Reset
+
+
 @app.callback(
     [Output("out1", "children"),
-    Output("out2", "children"),
-    Output("out3", "children")], 
-    [Input("btn-cal", "n_clicks"),Input("btn-res", "n_clicks") ],
-    State("user-input", "children"), 
+     Output("out2", "children"),
+     Output("out3", "children")],
+    [Input("btn-cal", "n_clicks"), Input("btn-res", "n_clicks")],
+    State("user-input", "children"),
     prevent_initial_call=True)
 
 def calculate_button_controller(btn,btn1,data):
@@ -144,22 +150,23 @@ def calculate_button_controller(btn,btn1,data):
         A list with the values of the output values [Bloom, clarity, viscosity]
     """
     ctx = dash.callback_context
-    if ctx.triggered[0]['prop_id'].split(".")[0]=='btn-cal':
-        df_input = pd.read_json(data).set_index('index').drop('name',axis=1).squeeze()
-        df = pd.DataFrame(df_input).transpose().drop('',axis=1)
-        df.columns= df.columns.str.lower()
-        df=df[order_columns]
-        df_output=target_prediction(df)
-        bloom=round(df_output[0][0],2)
-        viscosity=round(df_output[0][1],2)
-        clarity=round(df_output[0][2],2)
-        return [bloom, clarity, viscosity]
-    if ctx.triggered[0]['prop_id'].split(".")[0]=='btn-res':
-        return ['','','']
+    if ctx.triggered[0]['prop_id'].split(".")[0] == 'btn-cal':
+        df_input = pd.read_json(data).set_index(
+            'index').drop('name', axis=1).squeeze()
+        df = pd.DataFrame(df_input).transpose().drop('', axis=1)
+        df.columns = df.columns.str.lower()
+        df = df[order_columns]
+        df_output = target_prediction(df)
+        bloom = str(round(df_output[0][0], 2))
+        viscosity = str(round(df_output[0][1], 2))
+        clarity = str(round(df_output[0][2], 2))
+        return [bloom+' g', clarity+' NTU', viscosity+' miliPoises']
+    if ctx.triggered[0]['prop_id'].split(".")[0] == 'btn-res':
+        return ['', '', '']
 
 @app.callback(
-    [Output(str(k),"value") for k in ids],
-    Input("btn-res", "n_clicks"), 
+    [Output(str(k), "value") for k in ids],
+    Input("btn-res", "n_clicks"),
     prevent_initial_call=True)
 def reset_button_controller(btn):
     """
@@ -173,3 +180,4 @@ def reset_button_controller(btn):
         A list of initial values for the input components.
     """
     return initial
+

@@ -14,6 +14,13 @@
     color: black;
     font-size: large;
 }
+.custom-dropDown--text{
+    color: black;
+    font-size: large;
+}
+.custom-dropDownItem--text{
+    color: black;
+}
 .card-title{
     text-align: center;
 }
@@ -30,4 +37,36 @@
 }
 .text-justify{
     text-align: justify;
+}
+
+
+/* Model Tables */
+
+div.clarity_results_card.card > .card-body{
+    padding: 6px;
+    margin: 0%;
+    width: 100%;
+}
+div.clarity_results_card.card > .card-header{
+    padding: 10px;
+    margin: 0%;
+    width: 100%;
+    max-height: 40px;
+}
+
+div.clarity_results_card .secondary-title{
+    margin: 0%;
+}
+
+
+div.makeCollapsibleCustom > div.card-header{
+    width: 100%;
+    margin: 0;
+    padding: 6px;
+}
+
+div#clarity_model_params {
+    /* font-size: smaller; */
+    width: 100%; 
+    max-width: 100%;
 }
