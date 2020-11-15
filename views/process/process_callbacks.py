@@ -43,14 +43,14 @@ df = pd.Series(initial, index=ids)
     [Input('updateModal_'+str(m), 'n_clicks_timestamp') for m in modal],
 
 )
-def reset_net(*args):
+def multi_reset_net(*args):
     """
     A callback function that receives as input the interaction of 
     the accept button when a modal is open and allows to restart 
     the network selection state.
 
     Args:
-        *arg: Receives the interaction with the accept button (n_clicks_timestamp)
+        *arg: The interaction of the update and cancel button (n_clicks_timestamp) of a certain modal.
 
     Returns:
         A dictionary with the network selection state.
@@ -71,17 +71,17 @@ def reset_net(*args):
 
     prevent_initial_call=True
 )
-def modal_events_controller(net_selection,*args):
+def multi_modal_events_controller(net_selection,*args):
     """
     A callback function that allows visualize the name of a process 
     and its associated variables according to the open modal.
 
     Args:
         net_selection: network selection state
-        *arg: Receives the interaction with the accept button (n_clicks_timestamp) of a certain modal.
+        *arg: Receives the interaction with the update and cancel button (n_clicks_timestamp) of a certain modal.
 
     Returns:
-        A Boolean list with the state of modals.
+        A Boolean list with the state of the process modals.
     """
     ids=[]
     for i in range(len(process_values)):

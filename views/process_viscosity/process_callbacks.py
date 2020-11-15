@@ -37,6 +37,17 @@ viscosity_obj_model.set_variables( [i for i in viscosity_modal_specs['placeholde
     [Input('updateModal_viscosity_Process_M'+str(i+1), 'n_clicks_timestamp') for i in range(6)],
 )
 def viscosity_reset_net(*args):
+    """
+    A callback function that receives as input the interaction of 
+    the update and cancel button when a modal is open and allows to restart 
+    the network selection state.
+
+    Args:
+        *arg: Receives the interaction with the update and cancel button (n_clicks_timestamp)
+
+    Returns:
+        A dictionary with the network selection state.
+    """
     return {'nodes': [], 'edges': []}
 
 # 2. Action: open and close modals according to selection in process map
@@ -50,6 +61,19 @@ def viscosity_reset_net(*args):
     prevent_initial_call=True
 )
 def viscosity_modal_events_controller(net_selection, *args):
+    """
+    A callback function that allows visualize the name of a process 
+    and its associated variables according to the open modal.
+
+    Args:
+        net_selection: network selection state
+        canceln: The interaction with the cancel button (n_clicks_timestamp) of the modal n.
+        updaten: The interaction with the update button (n_clicks_timestamp) of the modal n.
+        inputm: The value of input component m (value).
+
+    Returns:
+        A Boolean list with the state of modals m1 m2 m3.
+    """
     ctxt = dash.callback_context
     viscosity_modal_positions = [5, 19, 8, 12, 14, 15]
     modal_positions = [False] * 6
@@ -94,6 +118,19 @@ def viscosity_modal_events_controller(net_selection, *args):
     prevent_initial_call=True)
 
 def viscosity_showParams(btn, btn1, model, data):
+    """
+    A callback function that creates a prediction with current state of values in the process,
+     also clear to original state. 
+
+    Args:
+        btn: The interaction with the button calculate (n_clicks) .
+        btn1: The interaction with the button reset (n_clicks). 
+        model: The chosen model (value).
+        data: The current state of values in the process.
+
+    Returns:
+        A list with the output value [Viscosity]
+    """
     ctx = dash.callback_context
 
     if ctx.triggered[0]['prop_id'].split(".")[0] in ['viscosity_btn_cal', 'viscosity_demo_model']:
@@ -125,6 +162,17 @@ def viscosity_showParams(btn, btn1, model, data):
     [State('viscosity_Process_Help', 'is_open')]
 )
 def viscosity_openHelpController(okBtn, btn, m1):
+    """
+    A callback function that opens a help modal to show information about the output and process.
+
+    Args:
+        okBtn: The interaction with the ok button (n_clicks_timestamp).
+        btn: The interaction with the help image (n_clicks_timestamp).
+        m1: The state of the help modal (is_open).
+
+    Returns:
+        The state of the help modal.
+    """
     ctx = dash.callback_context
     
     if validate_pattern('viscosity_help_head_image', ctx.triggered[0]['prop_id']):
@@ -148,6 +196,17 @@ def viscosity_openHelpController(okBtn, btn, m1):
     ]
 )
 def viscosity_toggle_parameters(n1, is_open1):
+    """
+    A callback function that Opens/closes a collapsible modal with a table 
+    with currect value of parameters.
+
+    Args:
+        n1: The interaction with the ok button (n_clicks_timestamp).
+        is_open1: The state of the table modal (is_open).
+
+    Returns:
+        A list with the state of the table modal and a DataFrame with data of the current values [state, DataFrame].
+    """
     ctx = dash.callback_context
     if not ctx.triggered:
         return [False, None]
@@ -176,7 +235,17 @@ def viscosity_toggle_parameters(n1, is_open1):
     [Input('viscosity_3D_Plot', 'n_clicks')],
     [State('viscosity_3D_Plot_content', 'is_open')]
 )
-def toggle_viscosity_parameters(n1, is_open1):
+def viscosity_openSurfaceResponse(n1, is_open1):
+    """
+    A callback function that open the modal with the surface response.
+
+    Args:
+        n1: The interaction with the viscosity 3D Plot content body button (n_clicks_timestamp).
+        is_open1: The state of the surface response modal (is_open).
+
+    Returns:
+        The state of the surface response modal.
+    """
     ctx = dash.callback_context
     if not ctx.triggered:
         return False
@@ -197,7 +266,18 @@ def toggle_viscosity_parameters(n1, is_open1):
     ],
     [State('viscosity_3D_modal', 'is_open')]
 )
-def openHelpController(okBtn, btn, m1):
+def viscosity_closeSurfaceResponse(okBtn, btn, m1):
+    """
+    A callback function that close the modal with the surface response.
+
+    Args:
+        okbtn: The interaction with the ok button (n_clicks_timestamp).
+        n1: The interaction with the viscosity 3D Plot content body button (n_clicks_timestamp).
+        is_open1: The state of the surface response modal (is_open).
+
+    Returns:
+        The state of the surface response modal.
+    """
     ctx = dash.callback_context
     
     if ctx.triggered[0]['prop_id'].split(".")[0] == 'viscosity_3D_Plot_content_body_button':
@@ -222,6 +302,18 @@ def openHelpController(okBtn, btn, m1):
     prevent_initial_call=True
 )
 def showResponseSurface(n_clicks, in1, in2, value):
+    """
+    A callback function that create a model with surface response after request.
+
+    Args:
+        nclicks: The interaction with the viscosity 3D Plot content body button (n_clicks_timestamp)
+        in1: The interaction with the dropdown 1 (value)
+        1n2: The interaction with the dropdown 2 (value)
+        value: The chosen model in viscosity demo model (value).
+
+    Returns:
+        A list with the state of the table modal and a DataFrame with data of the current values [state, DataFrame].
+    """
     ctx = dash.callback_context
     if n_clicks is None:
         raise dash.exceptions.PreventUpdate

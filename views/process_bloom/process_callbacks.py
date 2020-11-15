@@ -5,7 +5,6 @@ from utils.action_buttons import get_button_pressed
 from utils.text_processing import validate_pattern
 from utils.prettyfyName import getPrettyVariableName, ref_dict
 from knowledge_module.model import CustomModel
-
 # Uncomment for local prediction
 # import knowledge_module.local_prediction.local_prediction as loc_pred
 # from knowledge_module.response_surface.response_surface import createResposeSurfaceAPI
@@ -68,10 +67,10 @@ def bloom_modal_events_controller(net_selection, *args):
 
     Args:
         net_selection: network selection state
-        *arg: Receives the interaction with the accept button (n_clicks_timestamp) of a certain modal.
+        *arg: Receives the interaction with the update and cancel button (n_clicks_timestamp) of a certain modal.
 
     Returns:
-        A Boolean list with the state of modals.
+        A Boolean list with the state of process modals.
     """
     ctxt = dash.callback_context
     bloom_modal_positions = [5, 19, 7, 8, 11, 12, 13, 15]
@@ -119,13 +118,13 @@ def bloom_modal_events_controller(net_selection, *args):
 def bloom_showParams(btn, btn1, model, data):
     """
     A callback function that creates a prediction with current state of values in the process,
-     also clear to original state 
+     also clear to original state. 
 
     Args:
         btn: The interaction with the button calculate (n_clicks) .
         btn1: The interaction with the button reset (n_clicks). 
         model: The chosen model (value).
-        data: Receives the current state of values in the process.
+        data: The current state of values in the process.
 
     Returns:
         A list with the output value [Bloom]
@@ -144,11 +143,11 @@ def bloom_showParams(btn, btn1, model, data):
     elif ctx.triggered[0]['prop_id'].split(".")[0] == 'bloom_btn_res':
         # Reset values
         bloom_obj_model.set_variables(bloom_default_parameters)
-        # 
-        #pred = bloom_obj_model.predictionAPI(
-        #    'bloom', model, api_url['predict'])['message'][0]['prediction']
-        #pred1 = "{:.3f} g".format(float(pred))
-        return [""]
+        
+        pred = bloom_obj_model.predictionAPI(
+            'bloom', model, api_url['predict'])['message'][0]['prediction']
+        pred1 = "{:.3f} g".format(float(pred))
+        return [pred1]
 
 # 4. Action: Open help modal to show information about the output and process
 @app.callback(
@@ -164,9 +163,9 @@ def bloom_openHelpController(okBtn, btn, m1):
     A callback function that opens a help modal to show information about the output and process.
 
     Args:
-        okBtn: The interaction with the ok button (n_clicks_timestamp)
-        btn: The interaction with the help image (n_clicks_timestamp)
-        m1: The state of the help modal (is_open)
+        okBtn: The interaction with the ok button (n_clicks_timestamp).
+        btn: The interaction with the help image (n_clicks_timestamp).
+        m1: The state of the help modal (is_open).
 
     Returns:
         The state of the help modal.
@@ -202,8 +201,8 @@ def bloom_toggle_parameters(n1, is_open1):
     with currect value of parameters.
 
     Args:
-        n1: The interaction with the ok button (n_clicks_timestamp)
-        is_open1: The state of the table modal (is_open)
+        n1: The interaction with the ok button (n_clicks_timestamp).
+        is_open1: The state of the table modal (is_open).
 
     Returns:
         A list with the state of the table modal and a DataFrame with data of the current values [state, DataFrame].
@@ -236,7 +235,17 @@ def bloom_toggle_parameters(n1, is_open1):
     [Input('bloom_3D_Plot', 'n_clicks')],
     [State('bloom_3D_Plot_content', 'is_open')]
 )
-def toggle_bloom_parameters(n1, is_open1):
+def bloom_openSurfaceResponse(n1, is_open1):
+    """
+    A callback function that open the modal with the surface response.
+
+    Args:
+        n1: The interaction with the bloom 3D Plot content body button (n_clicks_timestamp).
+        is_open1: The state of the surface response modal (is_open).
+
+    Returns:
+        The state of the surface response modal.
+    """
     ctx = dash.callback_context
     if not ctx.triggered:
         return False
@@ -257,17 +266,17 @@ def toggle_bloom_parameters(n1, is_open1):
     ],
     [State('bloom_3D_modal', 'is_open')]
 )
-def closeSurfaceResponse(okBtn, btn, m1):
+def bloom_closeSurfaceResponse(okBtn, btn, m1):
     """
-    A callback function that close the modal with the surface response
+    A callback function that close the modal with the surface response.
 
     Args:
-        okbtn: The interaction with the ok button (n_clicks_timestamp)
-        n1: The interaction with the ok button (n_clicks_timestamp)
-        is_open1: The state of the table modal (is_open)
+        okbtn: The interaction with the ok button (n_clicks_timestamp).
+        n1: The interaction with the bloom 3D Plot content body button (n_clicks_timestamp).
+        is_open1: The state of the surface response modal (is_open).
 
     Returns:
-        A list with the state of the table modal and a DataFrame with data of the current values [state, DataFrame].
+        The state of the surface response modal.
     """
     ctx = dash.callback_context
     
@@ -278,7 +287,7 @@ def closeSurfaceResponse(okBtn, btn, m1):
         m1 = False
         return m1
 
-# 8. Action: create a model with surface response after request
+# 8. Action: c
 @app.callback(
     Output('bloom_3D_modal_plot', 'figure'),
     [
@@ -292,14 +301,15 @@ def closeSurfaceResponse(okBtn, btn, m1):
     #State('bloom_3D_modal', 'is_open'),
     prevent_initial_call=True
 )
-def showResponseSurface(n_clicks, in1, in2, value):
+def bloom_showResponseSurface(n_clicks, in1, in2, value):
     """
-    A callback function that Opens/closes a collapsible modal with a table 
-    with currect value of parameters.
+    A callback function that create a model with surface response after request.
 
     Args:
-        n1: The interaction with the ok button (n_clicks_timestamp)
-        is_open1: The state of the table modal (is_open)
+        nclicks: The interaction with the bloom 3D Plot content body button (n_clicks_timestamp)
+        in1: The interaction with the dropdown 1 (value)
+        1n2: The interaction with the dropdown 2 (value)
+        value: The chosen model in bloom demo model (value).
 
     Returns:
         A list with the state of the table modal and a DataFrame with data of the current values [state, DataFrame].
