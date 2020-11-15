@@ -8,12 +8,12 @@ import plotly.express as px
 import dash
 
 df = select_table()
-namelist = ["batch", "d03_amn_carnaza", 
-                "d10_t_out_gelatin", "d11_td_ref", 
-                "d14_t2a", "d14_t2d", 
-                "averageproduction", "yield",
-                "bloom", "viscosidad", "claridad"]
-order_columns=df.columns.drop(namelist).tolist()
+# namelist = ["batch", "d03_amn_carnaza", 
+#                 "d10_t_out_gelatin", "d11_td_ref", 
+#                 "d14_t2a", "d14_t2d", 
+#                 "averageproduction", "yield",
+#                 "bloom", "viscosidad", "claridad"]
+# order_columns=df.columns.drop(namelist).tolist()
 
 @app.callback(
     [

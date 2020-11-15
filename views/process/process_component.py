@@ -5,6 +5,8 @@ from components.modal.modal_component import new_modal
 from components.network.network_component import new_network
 from views.process.const import process_values, output_values,nodes,modal
 from components.input.input_component import new_inputs
+from components.modal.help_modal import helpModal
+from components.help_header.help_header_component import help_header
 
 def make_output(i):
     return dbc.Row(
@@ -34,6 +36,14 @@ layout = html.Div(
             ),
             dbc.Col(
                 dbc.Card([
+                        helpModal('Multiresponse model', 'multiResponse_Help', 
+                        'https://progelhtmlpages.s3.us-east-2.amazonaws.com/049_Multiresponse_Model.html', 
+                        html.Div([
+                            'This model allows a prediction of the three main product variables: (1) Bloom value, (2) Clarity, and (3) Viscosity.',
+                            html.Br(),
+                            html.Br(),
+                        ])),
+                        #help_header('Output Process Values', 'multiResponse_help_head'),
                         dbc.CardHeader(
                             html.P('Output Process Values',className='secondary-title')),
                         dbc.CardBody(

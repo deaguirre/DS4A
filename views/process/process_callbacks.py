@@ -8,7 +8,7 @@ from knowledge_module.model import CustomModel
 from utils.text_processing import validate_pattern
 from utils.action_buttons import get_button_pressed
 from views.process.const import process_values, modal
-from views.trends.trends_callbacks import order_columns
+# from views.trends.trends_callbacks import order_columns
 from dash.dependencies import Input, Output, State
 from dash import callback_context
 from app import app
@@ -105,11 +105,11 @@ def Calculate(btn, btn1, data):
             'index').drop('name', axis=1).squeeze()
         df = pd.DataFrame(df_input).transpose().drop('', axis=1)
         df.columns = df.columns.str.lower()
-        df = df[order_columns]
+        # df = df[order_columns]
         df_output = target_prediction(df)
-        bloom = round(df_output[0][0], 2)
-        viscosity = round(df_output[0][1], 2)
-        clarity = round(df_output[0][2], 2)
+        bloom = "{:.2f} g".format(df_output[0][0])
+        viscosity = "{:.2f} mP".format(df_output[0][1])
+        clarity = "{:.2f} NTU".format(df_output[0][2])
         return [bloom, clarity, viscosity]
     if ctx.triggered[0]['prop_id'].split(".")[0] == 'btn-res':
         return ['', '', '']
@@ -122,3 +122,21 @@ def Calculate(btn, btn1, data):
 def Reset(btns):
     return initial
 
+
+@app.callback(
+    Output('multiResponse_Help', 'is_open'),
+    [
+        Input('okButton_multiResponse_Help','n_clicks_timestamp'),
+        Input("multiResponse_help_head_image", "n_clicks")
+    ],
+    [State('multiResponse_Help', 'is_open')]
+)
+def bloom_openHelpController(okBtn, btn, m1):
+    ctx = dash.callback_context
+    
+    if validate_pattern('multiResponse_help_head_image', ctx.triggered[0]['prop_id']):
+        m1 = True
+        return m1
+    elif ctx.triggered[0]['prop_id'].split(".")[0] == 'okButton_multiResponse_Help':
+        m1 = False
+        return m1
