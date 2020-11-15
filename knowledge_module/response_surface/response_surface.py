@@ -79,7 +79,7 @@ def createResposeSurfaceAPI(output, model, variables, var1, var2, url, verbose=F
         )
     fig.update_traces(contours_z=dict(show=True, usecolormap=True, highlightcolor="limegreen", project_z=True))
     fig.update_layout(margin=dict(l=0, r=0, b=0, t=0), 
-                    scene=dict(xaxis_title=res['xlabel'], yaxis_title=res['ylabel'], zaxis_title='Clarity')
+                    scene=dict(xaxis_title=res['xlabel'], yaxis_title=res['ylabel'], zaxis_title=res['zlabel'])
                     )
     if verbose:
         return [fig, print(res)]

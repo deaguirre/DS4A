@@ -50,7 +50,7 @@ def yield_reset_net(*args):
 )
 def yield_modal_events_controller(net_selection, *args):
     ctxt = dash.callback_context
-    yield_modal_positions = [1,9,12,15]
+    yield_modal_positions = [1, 11, 12, 15]
     modal_positions = [False] * 4
 
     #If a node is selected check in modal_positions if this node corresponds to any of the 
@@ -111,7 +111,7 @@ def yield_showParams(btn, btn1, model, data):
         # 
         pred = yield_obj_model.predictionAPI(
             'yield', model, api_url['predict'])['message'][0]['prediction']
-        pred1 = "{:.2f} miliPoises".format(float(pred))
+        pred1 = "{:.2f} %".format(float(pred))
         return [pred1]
 
 # 4. Action: Open help modal to show information about the output and process

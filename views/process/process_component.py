@@ -8,11 +8,15 @@ from components.help_header.help_header_component import help_header
 from views.process_bloom.process_callbacks import bloom_obj_model, bloom_variables
 from views.process.const import process_values, output_values,nodes,modal
 from components.input.input_component import new_inputs
+from components.modal.help_modal import helpModal
+from components.help_header.help_header_component import help_header
 
 # Help Page Items
 multiple_description = html.Div([
-
-    html.P([
+    html.P('This model allows a prediction of the three main product variables: (1) Bloom value, (2) Clarity, and (3) Viscosity.'),
+    html.Br(),
+    html.Br(),
+    html.P([    
         html.Strong('Instructions: '), 'To make a prediction you can change the variables in the processes marked with the ',
         html.Span(['orange box'], style={'color': '#ffffff', 'background': '#e59400'}),
     ])
