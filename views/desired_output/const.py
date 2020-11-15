@@ -1,2 +1,2 @@
 generalTitle="Desired Output"
-generalDescription="Considering the desired product characteristics of the gelatin such as Bloom, Viscosity and Clarity, this tab will display the associated parameters with higher probability of producing gelatin with those desired characteristics"
+generalDescription="Considering the desired product characteristics of the gelatin such as Bloom, Viscosity and Clarity, this tab will display the associated parameters with higher probability of producing gelatin with those desired characteristics."
