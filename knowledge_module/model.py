@@ -23,18 +23,6 @@ class CustomModel(DataModel):
 
     def showData(self):
         """
-<<<<<<< HEAD
-        Show the data for this model.
-        """
-        print('Prediction')
-        print('Input variables:\n')
-        print("- {}\n".format(self.dict_var['var_1']))
-        print("- {}\n".format(self.dict_var['var_2']))
-        print("- {}\n".format(self.dict_var['var_3']))
-        #print("- {}\n".format(self.variable4))
-        #print("- {}\n".format(self.variable5))
-        #print("- {}\n".format(self.variable6))
-=======
         Shows Data and Centered Data
 
         Args:
@@ -45,7 +33,6 @@ class CustomModel(DataModel):
         """     
         print(self.dict_var)
         print(self.dict_cent_var)
->>>>>>> modelProposal
     
     def generateCenteredData(self, data_mean_ref:pd.DataFrame):
         """

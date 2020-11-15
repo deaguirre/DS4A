@@ -98,9 +98,6 @@ def bloom_showParams(btn, btn1, model, data):
 
     if ctx.triggered[0]['prop_id'].split(".")[0] in ['bloom_btn_cal', 'bloom_demo_model']:
         # pred  = bloom_obj_model.predictions(modelSelection(model), mean_data)
-        
-        print('Bloom Object', bloom_obj_model.dict_var)
-
         pred = bloom_obj_model.predictionAPI(
             'bloom', model, api_url['predict'])['message'][0]['prediction']
         

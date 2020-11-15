@@ -31,8 +31,6 @@ clarity_obj_model.set_variables( # Load original data in placeholders of modals
 )
 clarity_default_parameters = [1, 0, 0, 0, 0, 76.20, 176.28, 118.48, 63.53, 58.83, 48.80]
 
-print('Clarity Object', clarity_obj_model.dict_var)
-
 # 1. Action: open and close modals for change values of variables in processes
 @app.callback(
     Output('net_clarity', 'selection'),
@@ -257,3 +255,4 @@ def clarity_showResponseSurface(n_clicks, in1, in2, value):
         plot = createResposeSurfaceAPI('clarity', value, clarity_variables, in1, in2, api_url['surf_response'])
 
         return plot
+print()

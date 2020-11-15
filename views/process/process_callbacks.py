@@ -7,20 +7,15 @@ from knowledge_module.expected_vals import target_prediction
 from knowledge_module.model import CustomModel
 from utils.text_processing import validate_pattern
 from utils.action_buttons import get_button_pressed
-from views.process1.const import process_values, modal
+from views.process.const import process_values, modal
 from views.trends.trends_callbacks import order_columns
 from dash.dependencies import Input, Output, State
 from dash import callback_context
 from app import app
 
 
-<<<<<<< HEAD:views/process1/process1_callbacks.py
 ## Values from Const.py for dynamic creation of elements in the process tab
 c=[]
-=======
-## Values from Const.py for dynamic creation of elements in process tab
-c = []
->>>>>>> modelProposal:views/process/process_callbacks.py
 for a in modal:
    c.append([modal[a][m]['id'] for m in range(len(modal[a]))])
 inputs = [item for sublist in c for item in sublist]
@@ -44,8 +39,8 @@ df = pd.Series(initial, index=ids)
 
 @app.callback(
     Output('net', 'selection'),
-    # [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
-    [Input('updateModal_'+str(m), 'n_clicks_timestamp') for m in modal]
+    [Input('cancelModal_'+str(m),'n_clicks_timestamp') for m in modal]+
+    [Input('updateModal_'+str(m), 'n_clicks_timestamp') for m in modal],
 
 )
 def reset_net(*args):
@@ -67,10 +62,10 @@ def reset_net(*args):
 
 
 @app.callback(
-<<<<<<< HEAD:views/process1/process1_callbacks.py
     [Output(str(m),'is_open') for m in modal],
     [Input('net', 'selection')]+
-    [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
+    [Input('cancelModal_'+str(m),'n_clicks_timestamp') for m in modal]+
+    [Input('updateModal_'+str(m), 'n_clicks_timestamp') for m in modal],
     [State(str(m),'is_open') for m in modal]+
     [State(m,'value') for m in inputs],
 
@@ -90,17 +85,6 @@ def modal_events_controller(net_selection,*args):
         A Boolean list with the state of modals.
     """
     ids=[]
-=======
-    [Output(str(m), 'is_open') for m in modal],
-    [Input('net', 'selection')] +
-    # [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
-    [Input('updateModal_'+str(m), 'n_clicks_timestamp') for m in modal],
-    [State(str(m), 'is_open') for m in modal] +
-    [State(m, 'value') for m in inputs], prevent_initial_call=True
-)
-def modal_events_controller(net_selection, *args):
-    ids = []
->>>>>>> modelProposal:views/process/process_callbacks.py
     for i in range(len(process_values)):
         ids.append(process_values[i]['id'])
     ctxt = dash.callback_context
@@ -112,7 +96,7 @@ def modal_events_controller(net_selection, *args):
                 m[l] = True
 
     #If we want to close a modal
-    if(validate_pattern('accept', ctxt.triggered[0]['prop_id'])):
+    if(validate_pattern('update', ctxt.triggered[0]['prop_id'])):
         m = [False]*len(modal)
     return m
 
@@ -149,7 +133,6 @@ def output_list(*args):
     [Input("btn-cal", "n_clicks"), Input("btn-res", "n_clicks")],
     State("user-input", "children"),
     prevent_initial_call=True)
-<<<<<<< HEAD:views/process1/process1_callbacks.py
 
 def calculate_button_controller(btn,btn1,data):
     """
@@ -166,9 +149,6 @@ def calculate_button_controller(btn,btn1,data):
     Returns:
         A list with the values of the output values [Bloom, clarity, viscosity]
     """
-=======
-def Calculate(btn, btn1, data):
->>>>>>> modelProposal:views/process/process_callbacks.py
     ctx = dash.callback_context
     if ctx.triggered[0]['prop_id'].split(".")[0] == 'btn-cal':
         df_input = pd.read_json(data).set_index(
@@ -177,10 +157,10 @@ def Calculate(btn, btn1, data):
         df.columns = df.columns.str.lower()
         df = df[order_columns]
         df_output = target_prediction(df)
-        bloom = round(df_output[0][0], 2)
-        viscosity = round(df_output[0][1], 2)
-        clarity = round(df_output[0][2], 2)
-        return [bloom, clarity, viscosity]
+        bloom = str(round(df_output[0][0], 2))
+        viscosity = str(round(df_output[0][1], 2))
+        clarity = str(round(df_output[0][2], 2))
+        return [bloom+' g', clarity+' NTU', viscosity+' miliPoises']
     if ctx.triggered[0]['prop_id'].split(".")[0] == 'btn-res':
         return ['', '', '']
 
@@ -193,15 +173,11 @@ def reset_button_controller(btn):
     A callback function that receives as input the interaction of 
     the reset button and returns a list of initial values for the input components by ID.
 
-<<<<<<< HEAD:views/process1/process1_callbacks.py
     Args:
         btn: The interaction with the reset button (n_clicks_timestamp)
 
     Returns:
         A list of initial values for the input components.
     """
-=======
-def Reset(btns):
->>>>>>> modelProposal:views/process/process_callbacks.py
     return initial
 

@@ -4,7 +4,9 @@ nodes = {
                 'id':1,
                 'label': 'Bait', 'color':'#c8ffa8', 
                 'image':'./assets/icons/00_meat.png','shape':'image',
-                'x':0, 'y':200, 'size':50
+                'x':0, 'y':200, 'size':50,
+                'font':{'color':'#ffffff', 'background':'#e59400', 'strokeWidth':0, 'strokecolor':'black', 'size':20} 
+
             },
             {
                 'id':2,
@@ -29,7 +31,8 @@ nodes = {
                 'label': 'Extraction',
                 'image':'./assets/icons/03_extraccion.svg','shape':'image', 
                 'x':800, 'y':200, 'size':50, 
-                'font':{'color':'black', 'background':'white'} 
+                'font':{'color':'#ffffff', 'background':'#e59400', 'strokeWidth':0, 'strokecolor':'black', 'size':20} 
+
             },
             {
                 'id':6,
@@ -47,7 +50,9 @@ nodes = {
                 'id':8,
                 'label': 'Ionic \n exchange', 
                 'image':'./assets/icons/06_intercambio.svg','shape':'image',
-                'x':400, 'y':400, 'size':30
+                'x':400, 'y':400, 'size':30,
+                'font':{'color':'#ffffff', 'background':'#e59400', 'strokeWidth':0, 'strokecolor':'black', 'size':20} 
+
             },
             {
                 'id':9,
@@ -66,13 +71,16 @@ nodes = {
                 'label': 'Flash \n Evaporation', 
                 'image':'./assets/icons/01_lavado.svg','shape':'image',
                 'x':1000, 'y':400, 'size':30, 
-                'font':{'color':'black', 'background':'white'}
+                'font':{'color':'#ffffff', 'background':'#e59400', 'strokeWidth':0, 'strokecolor':'black', 'size':20} 
+
             },
             {
                 'id':12,
                 'label': 'Esterilization', 
                 'image':'./assets/icons/08_esterilizador.svg','shape':'image',
-                'x':0, 'y':600, 'size':40
+                'x':0, 'y':600, 'size':40,
+                'font':{'color':'#ffffff', 'background':'#e59400', 'strokeWidth':0, 'strokecolor':'black', 'size':20} 
+
             },
             {
                 'id':13,
@@ -84,19 +92,25 @@ nodes = {
                 'id':14,
                 'label': 'Refrigeration', 
                 'image':'./assets/icons/10_refrigeracion.svg','shape':'image',
-                'x':200, 'y':650, 'size':30
+                'x':200, 'y':650, 'size':30,
+                'font':{'color':'#ffffff', 'background':'#e59400', 'strokeWidth':0, 'strokecolor':'black', 'size':20} 
+
             },
             {
                 'id':15,
                 'label': 'Drying', 
                 'image':'./assets/icons/11_secador.svg','shape':'image',
-                'x':400, 'y':600, 'size':40
+                'x':400, 'y':600, 'size':40,
+                'font':{'color':'#ffffff', 'background':'#e59400', 'strokeWidth':0, 'strokecolor':'black', 'size':20} 
+
             },
             {
                 'id':16,
                 'label': 'Grinding', 
                 'image':'./assets/icons/12_molienda.svg','shape':'image',
-                'x':550, 'y':600, 'size':40
+                'x':550, 'y':600, 'size':40,
+                'font':{'color':'#ffffff', 'background':'#e59400', 'strokeWidth':0, 'strokecolor':'black', 'size':20} 
+
             },
             {
                 'id':17,

@@ -125,7 +125,8 @@ viscosity_nodes = {
                 'id':16,
                 'label': 'Grinding', 
                 'image':'./assets/icons/12_molienda.svg','shape':'image',
-                'x':550, 'y':600, 'size':40
+                'x':550, 'y':600, 'size':40,
+
             },
             {
                 'id':17,
@@ -213,6 +214,6 @@ viscosity_nodes = {
 
 output_values = [
     {'id': 'viscosity_out',
-     'name': 'Viscosity',
+     'name': 'Viscosity:',
      }
 ]

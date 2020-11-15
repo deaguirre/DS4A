@@ -70,8 +70,9 @@ def tableSelectedValues(content_id, table_columns:None, table_page_size:None):
                 'overflow': 'hidden',
                 'textOverflow': 'ellipsis',
                 'maxWidth': '90%',
-                'textAlign': 'left', 
-                'fontSize':'smaller'
+                'textAlign': 'center', 
+                'fontSize':'smaller',
+                'font-family':'verdana'
             },
             style_table={'overflowX': 'auto'},
             id=content_id,
