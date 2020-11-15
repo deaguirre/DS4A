@@ -111,7 +111,7 @@ def yield_showParams(btn, btn1, model, data):
         # 
         pred = yield_obj_model.predictionAPI(
             'yield', model, api_url['predict'])['message'][0]['prediction']
-        pred1 = "{:.2f} miliPoises".format(float(pred))
+        pred1 = "{:.2f} %".format(float(pred))
         return [pred1]
 
 # 4. Action: Open help modal to show information about the output and process

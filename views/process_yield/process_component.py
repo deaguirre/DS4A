@@ -71,7 +71,6 @@ layout = html.Div(
                         html.Br(),
                         dbc.CardBody(
                             html.Div([
-                                
                                 dcc.Dropdown(
                                     id='yield_demo_model',
                                     options=[
@@ -81,8 +80,7 @@ layout = html.Div(
                                         {'label': 'XGBoost', 'value': 'XGB'}
                                     ],
                                     value='XGB', searchable=False
-                                ),
-                                html.Br()
+                                )
                             ])
                         ),
 
