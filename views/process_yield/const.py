@@ -213,6 +213,6 @@ yield_nodes = {
 
 output_values = [
     {'id': 'yield_out',
-     'name': 'Yield',
+     'name': 'Yield:',
      }
 ]

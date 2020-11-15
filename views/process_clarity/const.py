@@ -312,6 +312,6 @@ process_values=[
 
 output_values = [
     {'id': 'clarity_out',
-     'name': 'Clarity',
+     'name': 'Clarity:',
      }
 ]

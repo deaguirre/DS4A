@@ -4,17 +4,20 @@ import visdcc
 
 def new_network(id, data):
     """
-    Return a new card.
+    Return a new network.
 
     Args:
 
-        img (string): path to the image
-        title (string); title of the card
-        description (string): long text of the card
+        id (string): network ID
+        data (dict list ): arguments of the nodes 
 
     Returns:
 
-        card
+        network
+
+    Example:
+
+        >>> new_network('id1', [{'nodes':[], 'edges':[]}])
     """
     network = visdcc.Network(
         id=id,

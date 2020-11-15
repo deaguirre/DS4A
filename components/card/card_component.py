@@ -8,7 +8,7 @@ def new_card(img, title, description):
     Args:
 
         img (string): path to the image
-        title (string); title of the card
+        title (string): title of the card
         description (string): long text of the card
 
     Returns:

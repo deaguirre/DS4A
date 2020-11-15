@@ -14,8 +14,8 @@ from dash import callback_context
 from app import app
 
 
-## Values from Const.py for dynamic creation of elements in process tab
-c = []
+## Values from Const.py for dynamic creation of elements in the process tab
+c=[]
 for a in modal:
    c.append([modal[a][m]['id'] for m in range(len(modal[a]))])
 inputs = [item for sublist in c for item in sublist]
@@ -39,11 +39,22 @@ df = pd.Series(initial, index=ids)
 
 @app.callback(
     Output('net', 'selection'),
-    # [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
-    [Input('updateModal_'+str(m), 'n_clicks_timestamp') for m in modal]
+    [Input('cancelModal_'+str(m),'n_clicks_timestamp') for m in modal]+
+    [Input('updateModal_'+str(m), 'n_clicks_timestamp') for m in modal],
 
 )
 def reset_net(*args):
+    """
+    A callback function that receives as input the interaction of 
+    the accept button when a modal is open and allows to restart 
+    the network selection state.
+
+    Args:
+        *arg: Receives the interaction with the accept button (n_clicks_timestamp)
+
+    Returns:
+        A dictionary with the network selection state.
+    """
     return {'nodes': [], 'edges': []}
 
 ##Callback for the interaction between the user and the process graph
@@ -51,15 +62,29 @@ def reset_net(*args):
 
 
 @app.callback(
-    [Output(str(m), 'is_open') for m in modal],
-    [Input('net', 'selection')] +
-    # [Input('acceptModal_'+str(m),'n_clicks_timestamp') for m in modal],
+    [Output(str(m),'is_open') for m in modal],
+    [Input('net', 'selection')]+
+    [Input('cancelModal_'+str(m),'n_clicks_timestamp') for m in modal]+
     [Input('updateModal_'+str(m), 'n_clicks_timestamp') for m in modal],
-    [State(str(m), 'is_open') for m in modal] +
-    [State(m, 'value') for m in inputs], prevent_initial_call=True
+    [State(str(m),'is_open') for m in modal]+
+    [State(m,'value') for m in inputs],
+
+    prevent_initial_call=True
 )
-def modal_events_controller(net_selection, *args):
-    ids = []
+def modal_events_controller(net_selection,*args):
+    """
+    A callback function that receives network selection state and
+    the interaction of the accept button and it allows visualize 
+    the name of a process and its associated variables according to the open modal.
+
+    Args:
+        net_selection: network selection state
+        *arg: Receives the interaction with the accept button (n_clicks_timestamp) of a certain modal.
+
+    Returns:
+        A Boolean list with the state of modals.
+    """
+    ids=[]
     for i in range(len(process_values)):
         ids.append(process_values[i]['id'])
     ctxt = dash.callback_context
@@ -71,7 +96,7 @@ def modal_events_controller(net_selection, *args):
                 m[l] = True
 
     #If we want to close a modal
-    if(validate_pattern('accept', ctxt.triggered[0]['prop_id'])):
+    if(validate_pattern('update', ctxt.triggered[0]['prop_id'])):
         m = [False]*len(modal)
     return m
 
@@ -84,6 +109,16 @@ def modal_events_controller(net_selection, *args):
     #prevent_initial_call=True
 )
 def output_list(*args):
+    """
+    A callback function which receives the updates of the input components by ID 
+    and returns a JSON with all the inputs values.
+
+    Args:
+        *arg: Receives the interaction with the inputs components (value) 
+
+    Returns:
+        A JSON file with the inputs process values entered by the user.
+    """
     ctx = dash.callback_context
     df[ctx.triggered[0]['prop_id'].split(".")[0]] = ctx.triggered[0]['value']
     return df.to_json(date_format='iso', orient='split')
@@ -98,7 +133,22 @@ def output_list(*args):
     [Input("btn-cal", "n_clicks"), Input("btn-res", "n_clicks")],
     State("user-input", "children"),
     prevent_initial_call=True)
-def Calculate(btn, btn1, data):
+
+def calculate_button_controller(btn,btn1,data):
+    """
+    A callback function that calculates and returns the output variables given
+    a previously trained model, and the JSON file with all the input process values 
+    entered by the user, if it receives a calculate button interaction. It returns an empty list,
+    if it receives a reset button interaction. 
+
+    Args:
+        btn: The interaction with the accept button (n_clicks_timestamp)
+        btn1: The interaction with the reset button (n_clicks_timestamp)
+        data: A JSON file with all input process variables enteref by the user
+
+    Returns:
+        A list with the values of the output values [Bloom, clarity, viscosity]
+    """
     ctx = dash.callback_context
     if ctx.triggered[0]['prop_id'].split(".")[0] == 'btn-cal':
         df_input = pd.read_json(data).set_index(
@@ -118,8 +168,17 @@ def Calculate(btn, btn1, data):
     [Output(str(k), "value") for k in ids],
     Input("btn-res", "n_clicks"),
     prevent_initial_call=True)
+def reset_button_controller(btn):
+    """
+    A callback function that receives as input the interaction of 
+    the reset button and returns a list of initial values for the input components by ID.
 
-def Reset(btns):
+    Args:
+        btn: The interaction with the reset button (n_clicks_timestamp)
+
+    Returns:
+        A list of initial values for the input components.
+    """
     return initial
 
 

@@ -17,19 +17,19 @@ headerComponent = html.Div(
                                 html.H1('Gelatin Manufacturing Process'),
                                 width=8,
                                 align="center",
-                                #style={'backgroundColor':'black'}
+                                
                                 
                             ),
                             dbc.Col(
-                                html.Img(src=logoProgel, width=200, height=100),
+                                html.A([ html.Img(src=logoProgel, width=200, height=80.64) ] , href = 'https://www.gelcointernational.com/en/home', target = "_blank"),
                                 width=2,
-                                #style={'backgroundColor':'yellow'}
+                                
                                 
                             ),
                             dbc.Col(
-                                html.Img(src=logoDS4, width=100.5, height=100),
+                                html.A([ html.Img(src=logoDS4, width=100.5, height=100) ] , href = "https://www.correlation-one.com/", target = "_blank"),
                                 width=2,
-                                #style={'backgroundColor':'blue'}
+                                
                                 
                             ),
                         ]
@@ -46,7 +46,6 @@ headerComponent = html.Div(
                     dbc.Nav(className='custom-navBar',
                         children = [
                         dbc.NavItem(dbc.NavLink('General', href='/home', className='custom-nav--text')),
-
                         dbc.DropdownMenu(
                             [
                                 dbc.DropdownMenuItem('Multiresponse',   href='/process',   className='custom-dropDownItem--text'),
@@ -57,7 +56,7 @@ headerComponent = html.Div(
                             ], label = 'Process', nav=True,  className='custom-dropDown--text'
                         ),
                         dbc.NavItem(dbc.NavLink('Trends', href='/trends', className='custom-nav--text')),
-                        dbc.NavItem(dbc.NavLink('Desired Output', href='/realTime', className='custom-nav--text'))
+                        dbc.NavItem(dbc.NavLink('Desired Output', href='/desiredOutput', className='custom-nav--text'))
                         ],
                         pills=True,
                         style = {'backgroundColor': '#8E9ECB', 'paddingLeft':'3%'}

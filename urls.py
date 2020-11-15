@@ -3,7 +3,7 @@ from app import app
 from views.home import home_component as home
 from views.process import process_component as process
 from views.trends import trends_component as trends
-from views.real_time import real_time_component as real_time
+from views.desired_output import desired_output_component as desired_output
 from views.process_bloom   import process_component as process_bloom
 from views.process_clarity import process_component as process_clarity
 from views.process_viscosity import process_component as process_viscosity
@@ -15,6 +15,9 @@ from views.process_yield import process_component as process_yield
               ]
 )
 def display_page(pathname):
+    """
+    This method serves as the routing component fot the app.
+    """
     if(pathname == '/home'):
         return home.layout
     elif(pathname == '/process'):
@@ -31,7 +34,7 @@ def display_page(pathname):
     #
     elif(pathname == '/trends'):
         return trends.layout
-    elif(pathname == '/realTime'):
-        return real_time.layout
+    elif(pathname == '/desiredOutput'):
+        return desired_output.layout
     else:
         return home.layout

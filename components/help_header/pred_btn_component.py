@@ -25,11 +25,14 @@ def predictionButtons(id):
                  'borderBottomRightradius': 0}
 
     predButtons = dbc.CardBody(
-        dbc.ButtonGroup([
+        
+             dbc.Row([
+            dbc.Col(
             dbc.Button("Calculate", id=btn_cal_id,
-                       color="primary", className="mr-auto", style=btn_style),
+                       color="primary", className="mr-auto", style=btn_style)),
+             dbc.Col(
             dbc.Button("Reset", id=btn_res_id,
-                       color="secondary", className="mr-auto", style=btn_style)
+                       color="secondary", className="mr-auto", style=btn_style))
         ], id=user_ip_id)
 
     )

@@ -6,16 +6,12 @@ import dash_html_components as html
 def new_modal(header, items, func, id):
     """
     Return a new Modal.
-
     Args:
-
         header (string): Title of the modal
         items (string): json of input texts
         func (string): id of the callback to activate}
         id(string): modal ID
-
     Returns:
-
         modal
     """
     modal = dbc.Modal(
@@ -28,7 +24,8 @@ def new_modal(header, items, func, id):
                             [
                                 dbc.Button('Cancel', 
                                 id='cancelModal_{}'.format(id), 
-                                className='ml-auto', 
+                                color="secondary", 
+                                className="mr-1",
                                 style={
                                     'marginRight': '2rem',
                                     'borderTopRightradius': 0,
@@ -37,8 +34,9 @@ def new_modal(header, items, func, id):
                                 n_clicks_timestamp='0'
                                     ),
                                 dbc.Button('Update', 
-                                id='updateModal_{}'.format(id), 
-                                className='ml-auto',
+                                id='updateModal_{}'.format(id),
+                                color="primary", 
+                                className="mr-1",
                                 style={
                                     'borderTopRightradius': 0,
                                     'borderBottomRightradius': 0
