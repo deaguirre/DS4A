@@ -68,7 +68,7 @@ layout = html.Div(
                                     tableSelectedValues(
                                         'viscosity_model_params_table',
                                         [{'name': i, 'id': i} for i in ['Parameter', 'Value']],
-                                        11
+                                        10
                                     ),
                                     'viscosity_model_params'),
                         html.Br(),

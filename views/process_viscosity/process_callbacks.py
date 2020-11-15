@@ -3,6 +3,7 @@ import dash_html_components as html
 from app import app
 from utils.action_buttons import get_button_pressed
 from utils.text_processing import validate_pattern
+from utils.prettyfyName import getPrettyVariableName, ref_dict
 from knowledge_module.model import CustomModel
 
 # Uncomment for local prediction
@@ -216,10 +217,15 @@ def viscosity_toggle_parameters(n1, is_open1):
         # Create table with value of inputs for the user
         dictionary = viscosity_obj_model.dict_var
         #print(dictionary)
-        df = pd.DataFrame(dictionary, index=['Value'])\
-            .transpose().reset_index().rename(columns={'index': 'Parameter'}).to_dict('records')
+        variable_dataframe = pd.DataFrame(dictionary, index=['Value'])\
+        .transpose()\
+        .reset_index()\
+        .assign(index = lambda df: getPrettyVariableName(df['index'], ref_dict))\
+        .rename(columns={'index': 'Parameter'})\
+        .to_dict('records')
+
         #print(df)
-        return [not is_open1, df]
+        return [not is_open1, variable_dataframe]
     
     return [False, None]
 

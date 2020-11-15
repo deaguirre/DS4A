@@ -3,6 +3,7 @@ import dash_html_components as html
 from app import app
 from utils.action_buttons import get_button_pressed
 from utils.text_processing import validate_pattern
+from utils.prettyfyName import getPrettyVariableName, ref_dict
 from knowledge_module.model import CustomModel
 # Uncomment for local prediction
 # import knowledge_module.local_prediction.local_prediction as loc_pred
@@ -209,6 +210,7 @@ def clarity_openHelpController(okBtn, btn, m1):
         return m1
 
 # 5. Action: Open/close collapsible modal with a table with currect value of parameters
+
 @app.callback(
     [
         Output('clarity_parameters_content', 'is_open'),
@@ -242,12 +244,16 @@ def clarity_toggle_parameters(n1, is_open1):
     if button_id == "clarity_parameters" and n1:
         # Create table with value of inputs for the user
         dictionary = clarity_obj_model.dict_var
-        #print(dictionary)
-        df = pd.DataFrame(dictionary, index=['Value'])\
-            .transpose().reset_index().rename(columns={'index': 'Parameter'}).to_dict('records')
+        # print(dictionary)
+        variable_dataframe = pd.DataFrame(dictionary, index=['Value'])\
+        .transpose()\
+        .reset_index()\
+        .assign(index = lambda df: getPrettyVariableName(df['index'], ref_dict))\
+        .rename(columns={'index': 'Parameter'})\
+        .to_dict('records')
         
-        #print(df)
-        return [not is_open1, df]
+        # print(variable_dataframe)
+        return [not is_open1, variable_dataframe]
     
     return [False, None]
 
