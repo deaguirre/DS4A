@@ -68,7 +68,9 @@ def histogram_plot_x(var_x):
                        
                        )
     
-    #add Title
+    fig.layout.update(showlegend=False)
+	
+	#add Title
     t = "Histogram for " + var_to_eng[var_x.name]
     fig.update_layout(
     title={
