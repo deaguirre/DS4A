@@ -2,6 +2,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 import numpy as np
 import pandas as pd
+from utils.var_to_eng_dict import var_to_eng 
 
 
 def scatter_plot_x_y(var_x, var_y): 
@@ -29,8 +30,8 @@ def scatter_plot_x_y(var_x, var_y):
 
     #add Axis labels
     fig.update_layout(
-        xaxis_title=var_x.name,
-        yaxis_title=var_y.name,
+        xaxis_title=var_to_eng[var_x.name],
+        yaxis_title=var_to_eng[var_y.name],
         legend_title="Legend Title",
     
     )
@@ -38,7 +39,7 @@ def scatter_plot_x_y(var_x, var_y):
     #add Title
     fig.update_layout(
     title={
-        'text': "Scatter plot for " + var_x.name + " vs. " + var_y.name ,
+        'text': "Scatter plot for " + var_to_eng[var_x.name] + " vs. " + var_to_eng[var_y.name] ,
         'font_size': 20,
         'y':0.88,
         'x':0.5,
@@ -68,7 +69,7 @@ def histogram_plot_x(var_x):
                        )
     
     #add Title
-    t = "Histogram for " + var_x.name
+    t = "Histogram for " + var_to_eng[var_x.name]
     fig.update_layout(
     title={
         'text': t ,
@@ -114,7 +115,7 @@ def line_plot_x(var_x):
         )
 
     #add Title
-    t = "Evolution of " + var_x.name
+    t = "Evolution of " + var_to_eng[var_x.name]
 
     fig.update_layout(title={'text': t ,
         'font_size': 20,
